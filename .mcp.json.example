@@ -1,0 +1,48 @@
+{
+  "mcpServers": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_CONTEXT7_API_KEY_HERE"
+      }
+    },
+    "serena": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server",
+        "--context",
+        "ide-assistant",
+        "--project",
+        "/absolute/path/to/your/project"
+      ],
+      "env": {}
+    },
+    "backlog": {
+      "type": "stdio",
+      "command": "backlog",
+      "args": [
+        "mcp",
+        "start"
+      ],
+      "env": {}
+    },
+    "spacectl": {
+      "type": "stdio",
+      "command": "spacectl",
+      "args": [
+        "mcp",
+        "server"
+      ],
+      "env": {}
+    },
+    "opentofu": {
+      "type": "sse",
+      "url": "https://mcp.opentofu.org/sse"
+    }
+  }
+}

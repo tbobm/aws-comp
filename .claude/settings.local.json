@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__backlog__task_list",
+      "mcp__backlog__task_create",
+      "mcp__backlog__task_edit",
+      "mcp__backlog__task_view",
+      "mcp__serena__list_dir",
+      "mcp__serena__activate_project",
+      "Bash(npm install)",
+      "Bash(timeout 5 npm run dev:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)"
+    ]
+  },
+  "enabledMcpjsonServers": [
+    "context7",
+    "serena",
+    "backlog",
+    "spacectl",
+    "opentofu"
+  ]
+}
