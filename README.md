@@ -73,12 +73,53 @@ npm run lint
 
 ## Deployment
 
-The application is automatically deployed to GitHub Pages when changes are pushed to the `main` branch.
+### Initial GitHub Pages Setup
+
+Before the first deployment, you need to enable GitHub Pages for the repository:
+
+1. **Make the repository public** (required for GitHub Pages on free plan):
+   ```bash
+   gh repo edit tbobm/aws-comp --visibility public
+   ```
+
+2. **Enable GitHub Pages via GitHub UI**:
+   - Go to repository Settings → Pages
+   - Under "Build and deployment", select:
+     - Source: **GitHub Actions**
+   - Save the settings
+
+3. **Configure custom domain** (optional):
+   - In Settings → Pages → Custom domain
+   - Enter: `aws-comp.tbobm.dev`
+   - DNS should already be configured (CNAME record pointing to `tbobm.github.io`)
+
+### Automated Deployment
+
+Once GitHub Pages is enabled, the application automatically deploys when changes are pushed to the `main` branch.
 
 - **Production URL**: https://aws-comp.tbobm.dev
 - **GitHub Pages**: https://tbobm.github.io/aws-comp/
 
 The deployment is handled by GitHub Actions (see `.github/workflows/deploy.yml`).
+
+### Manual Setup Script
+
+```bash
+#!/bin/bash
+# setup-github-pages.sh - One-time setup for GitHub Pages
+
+# Make repository public
+echo "Making repository public..."
+gh repo edit tbobm/aws-comp --visibility public
+
+# Note: GitHub Pages must be enabled manually in repository settings
+# Go to: https://github.com/tbobm/aws-comp/settings/pages
+# Set Source to "GitHub Actions"
+
+echo "✓ Repository is now public"
+echo "→ Next: Enable GitHub Pages in repository settings"
+echo "→ URL: https://github.com/tbobm/aws-comp/settings/pages"
+```
 
 ## Project Structure
 
