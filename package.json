@@ -7,15 +7,18 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "fetch-pricing": "tsx scripts/pricing/fetch-pricing.ts"
   },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@aws-sdk/client-pricing": "^3.926.0",
     "@eslint/js": "^9.17.0",
     "@tailwindcss/postcss": "^4.1.16",
+    "@types/node": "^24.10.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
@@ -26,6 +29,7 @@
     "globals": "^15.14.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.16",
+    "tsx": "^4.20.6",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
     "vite": "^6.0.5"
