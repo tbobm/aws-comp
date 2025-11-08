@@ -23,7 +23,7 @@ const services: ServiceMetadata[] = [
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-gray-100">
+      <div className="min-h-screen bg-neutral-50">
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route
