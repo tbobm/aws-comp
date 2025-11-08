@@ -1,10 +1,10 @@
 ---
 id: task-1.3
 title: S3 Storage Tiers Comparison UI
-status: To Do
+status: Done
 assignee: []
 created_date: '2025-11-05 21:35'
-updated_date: '2025-11-05 21:35'
+updated_date: '2025-11-08 12:30'
 labels: []
 dependencies:
   - task-1.1
@@ -28,9 +28,9 @@ Includes:
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 User can input storage size, request counts, and data transfer volumes
-- [ ] #2 User can select different S3 storage tiers for each comparison side
-- [ ] #3 Calculated costs match AWS pricing calculator results within $0.01
-- [ ] #4 Cost breakdown shows storage, request, and data transfer costs separately
-- [ ] #5 Form validation prevents invalid inputs (negative numbers, etc.)
+- [x] #1 User can input storage size, request counts, and data transfer volumes
+- [x] #2 User can select different S3 storage tiers for each comparison side
+- [x] #3 Calculated costs match AWS pricing calculator results within $0.01
+- [x] #4 Cost breakdown shows storage, request, and data transfer costs separately
+- [x] #5 Form validation prevents invalid inputs (negative numbers, etc.)
 <!-- AC:END -->

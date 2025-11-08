@@ -1,10 +1,10 @@
 ---
 id: task-1.4
 title: RDS Aurora Comparison UI
-status: To Do
+status: Done
 assignee: []
 created_date: '2025-11-05 21:35'
-updated_date: '2025-11-05 21:35'
+updated_date: '2025-11-08 12:41'
 labels: []
 dependencies:
   - task-1.1
@@ -29,9 +29,9 @@ Includes:
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 User can configure Aurora Serverless v2 parameters (ACU range, storage, etc.)
-- [ ] #2 User can configure Aurora Provisioned parameters (instance type, storage, etc.)
-- [ ] #3 User can compare Serverless v2 vs Provisioned or two variants of the same type
-- [ ] #4 Calculated costs match AWS pricing calculator results within $0.01
-- [ ] #5 Cost breakdown shows compute, storage, I/O, and backup costs separately
+- [x] #1 User can configure Aurora Serverless v2 parameters (ACU range, storage, etc.)
+- [x] #2 User can configure Aurora Provisioned parameters (instance type, storage, etc.)
+- [x] #3 User can compare Serverless v2 vs Provisioned or two variants of the same type
+- [x] #4 Calculated costs match AWS pricing calculator results within $0.01
+- [x] #5 Cost breakdown shows compute, storage, I/O, and backup costs separately
 <!-- AC:END -->
