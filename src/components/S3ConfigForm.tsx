@@ -5,7 +5,7 @@ import { S3_TIER_METADATA } from '../types/s3';
 interface S3ConfigFormProps {
   config: S3StorageConfig;
   onChange: (config: S3StorageConfig) => void;
-  label: string;
+  label?: string;
 }
 
 export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormProps) {

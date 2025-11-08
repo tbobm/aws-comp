@@ -1,15 +1,58 @@
-import AuroraComparison from './components/AuroraComparison'
-import S3Comparison from './components/S3Comparison'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import AuroraComparison from './components/AuroraComparison';
+import S3Comparison from './components/S3Comparison';
+import LandingPage from './components/LandingPage';
+import ServiceSelector from './components/ServiceSelector';
+import { ServiceMetadata } from './types/comparison';
+
+const services: ServiceMetadata[] = [
+  {
+    id: 's3',
+    title: 'S3 Storage',
+    description: 'Compare costs between different S3 storage tiers',
+    path: '/s3',
+  },
+  {
+    id: 'aurora',
+    title: 'RDS Aurora',
+    description: 'Compare Serverless v2 vs Provisioned Aurora deployments',
+    path: '/aurora',
+  },
+];
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="container mx-auto px-4 py-8">
-        <AuroraComparison />
-        <S3Comparison />
+    <BrowserRouter>
+      <div className="min-h-screen bg-gray-100">
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route
+            path="/s3"
+            element={
+              <>
+                <ServiceSelector services={services} />
+                <div className="container mx-auto px-4 py-8">
+                  <S3Comparison />
+                </div>
+              </>
+            }
+          />
+          <Route
+            path="/aurora"
+            element={
+              <>
+                <ServiceSelector services={services} />
+                <div className="container mx-auto px-4 py-8">
+                  <AuroraComparison />
+                </div>
+              </>
+            }
+          />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </div>
-    </div>
-  )
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

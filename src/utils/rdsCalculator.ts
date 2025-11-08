@@ -4,6 +4,7 @@ import type {
   AuroraServerlessV2Config,
   AuroraProvisionedConfig,
 } from '../types/rds';
+import type { GenericCostBreakdown } from '../types/comparison';
 import { AURORA_INSTANCE_METADATA } from '../types/rds';
 
 const HOURS_PER_MONTH = 730;
@@ -64,4 +65,16 @@ export function calculateAuroraCosts(auroraConfig: AuroraConfig): AuroraCostBrea
   } else {
     return calculateProvisionedCosts(auroraConfig.config);
   }
+}
+
+export function auroraCostToGeneric(breakdown: AuroraCostBreakdown): GenericCostBreakdown {
+  return {
+    items: [
+      { label: 'Compute', cost: breakdown.computeCost },
+      { label: 'Storage', cost: breakdown.storageCost },
+      { label: 'I/O Requests', cost: breakdown.ioCost },
+      { label: 'Backup Storage', cost: breakdown.backupCost },
+    ],
+    total: breakdown.totalCost,
+  };
 }

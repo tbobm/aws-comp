@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.9.5",
+    "recharts": "^3.3.0"
   },
   "devDependencies": {
     "@aws-sdk/client-pricing": "^3.926.0",
@@ -21,6 +23,7 @@
     "@types/node": "^24.10.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
+    "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.17.0",
