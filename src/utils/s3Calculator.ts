@@ -1,4 +1,5 @@
 import type { S3StorageConfig, S3CostBreakdown, S3StorageTier } from '../types/s3';
+import type { GenericCostBreakdown } from '../types/comparison';
 import pricingData from '../../data/pricing/aws-pricing.json';
 
 const TIER_STORAGE_CLASS_MAP: Record<S3StorageTier, string[]> = {
@@ -107,5 +108,17 @@ export function calculateS3Costs(config: S3StorageConfig): S3CostBreakdown {
     getRequestsCost,
     dataTransferCost,
     totalCost,
+  };
+}
+
+export function s3CostToGeneric(breakdown: S3CostBreakdown): GenericCostBreakdown {
+  return {
+    items: [
+      { label: 'Storage', cost: breakdown.storageCost },
+      { label: 'PUT Requests', cost: breakdown.putRequestsCost },
+      { label: 'GET Requests', cost: breakdown.getRequestsCost },
+      { label: 'Data Transfer', cost: breakdown.dataTransferCost },
+    ],
+    total: breakdown.totalCost,
   };
 }

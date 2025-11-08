@@ -9,7 +9,7 @@ import { AURORA_INSTANCE_METADATA } from '../types/rds';
 interface AuroraConfigFormProps {
   config: AuroraConfig;
   onChange: (config: AuroraConfig) => void;
-  label: string;
+  label?: string;
 }
 
 export default function AuroraConfigForm({ config, onChange, label }: AuroraConfigFormProps) {
