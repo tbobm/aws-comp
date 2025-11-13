@@ -1,10 +1,10 @@
 ---
 id: task-1.5
 title: Comparison Framework & Results Display
-status: To Do
+status: Done
 assignee: []
 created_date: '2025-11-05 21:35'
-updated_date: '2025-11-05 21:35'
+updated_date: '2025-11-08 16:13'
 labels: []
 dependencies:
   - task-1.1
@@ -30,9 +30,9 @@ Includes:
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 User can switch between different AWS services (S3, Aurora)
-- [ ] #2 Side-by-side comparison layout works on desktop, tablet, and mobile
-- [ ] #3 Results clearly show total cost and breakdown by component
-- [ ] #4 Visual chart highlights cost differences between configurations
-- [ ] #5 Layout is clean and functional following minimal design principles
+- [x] #1 User can switch between different AWS services (S3, Aurora)
+- [x] #2 Side-by-side comparison layout works on desktop, tablet, and mobile
+- [x] #3 Results clearly show total cost and breakdown by component
+- [x] #4 Visual chart highlights cost differences between configurations
+- [x] #5 Layout is clean and functional following minimal design principles
 <!-- AC:END -->
