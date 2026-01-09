@@ -40,6 +40,14 @@
   --color-error: #f44336;
   --color-error-light: #e57373;
 
+  /* Cost-specific semantic colors */
+  --color-cost-savings: #4caf50;
+  --color-cost-savings-light: #81c784;
+  --color-cost-increase: #f44336;
+  --color-cost-increase-light: #e57373;
+  --color-cost-neutral: #757575;
+  --color-cost-neutral-light: #bdbdbd;
+
   /* Neutral grays - Material palette */
   --color-neutral-50: #fafafa;
   --color-neutral-100: #f5f5f5;
@@ -68,6 +76,11 @@
   --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.12);
   --shadow-strong: 0 8px 24px rgba(0, 0, 0, 0.16);
 
+  /* Enhanced elevation system for visual hierarchy */
+  --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 4px 12px -2px rgba(0, 0, 0, 0.12), 0 2px 6px -1px rgba(0, 0, 0, 0.08);
+  --shadow-active: 0 8px 20px -4px rgba(0, 0, 0, 0.16), 0 4px 10px -2px rgba(0, 0, 0, 0.12);
+
   /* Spacing adjustments for Material Design */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
@@ -87,6 +100,14 @@
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Animation-friendly utilities */
+  --duration-quick: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
 }
 
 /* Custom animations */
