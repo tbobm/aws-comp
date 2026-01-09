@@ -41,10 +41,16 @@ Plans:
 **Goal**: Rebuild core UI components (comparison cards, cost breakdowns, parameter controls) with new design system
 **Depends on**: Phase 1
 **Research**: Unlikely (building on existing React components and established patterns from Phase 1)
-**Plans**: TBD
+**Plans**: 3 (1 complete, 2 remaining)
+**Status**: In progress
 
 Plans:
-- TBD (will be defined during phase planning)
+- [x] **02-01: Layout and Navigation Redesign** - ComparisonLayout, ServiceSelector, LandingPage with animations (8 min)
+  - Applied cardVariants consistently across all card components
+  - Implemented elevation system with shadow-subtle/shadow-hover
+  - Added cost-specific highlights to comparison cards
+- [ ] **02-02: Forms Redesign** - TBD
+- [ ] **02-03: Data Visualization Redesign** - TBD
 
 ### Phase 3: Interactive Features
 **Goal**: Implement micro-interactions, hover effects, drill-down details, and dynamic filtering for engaging exploration
@@ -72,6 +78,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Design Foundation | 1/1 | Complete | 2026-01-09 |
-| 2. Component Redesign | 0/? | Not started | - |
+| 2. Component Redesign | 1/3 | In progress | - |
 | 3. Interactive Features | 0/? | Not started | - |
 | 4. Polish & Responsiveness | 0/? | Not started | - |
