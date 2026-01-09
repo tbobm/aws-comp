@@ -224,3 +224,22 @@ export const tooltipVariants: Variants = {
     },
   },
 };
+
+/**
+ * Animation variants for form validation errors.
+ * Creates shake effect to draw attention to input errors.
+ *
+ * Example:
+ * ```tsx
+ * <motion.div variants={errorVariants} animate="animate">
+ * ```
+ */
+export const errorVariants: Variants = {
+  animate: {
+    x: [0, -10, 10, -10, 10, 0],
+    transition: {
+      duration: 0.4,
+      ease: 'easeInOut',
+    },
+  },
+};
