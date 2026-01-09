@@ -67,7 +67,7 @@ export const costChangeVariants: Variants = {
     opacity: 1,
   },
   animate: {
-    scale: [1, 1.15, 1],
+    scale: [1, 1.05, 1],
     opacity: [1, 0.8, 1],
     transition: {
       duration: 0.4,
@@ -94,10 +94,10 @@ export const highlightVariants: Variants = {
   },
   animate: {
     opacity: 1,
-    scale: [0.9, 1.05, 1],
+    scale: [0.98, 1.02, 1],
     transition: {
-      duration: 0.5,
-      ease: [0.34, 1.56, 0.64, 1], // Spring-like easing
+      duration: 0.3,
+      ease: 'easeOut',
     },
   },
   exit: {
@@ -128,7 +128,7 @@ export const highlightVariants: Variants = {
 export const fadeInUpVariants: Variants = {
   initial: {
     opacity: 0,
-    y: 30,
+    y: 15,
   },
   animate: {
     opacity: 1,

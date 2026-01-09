@@ -29,7 +29,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-primary-50 to-neutral-50 py-16">
       <div className="container mx-auto px-4">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-16 max-w-3xl mx-auto pb-8 border-b-2 border-primary-500/20"
           variants={fadeInUpVariants}
           initial="initial"
           animate="animate"
@@ -37,7 +37,7 @@ export default function LandingPage() {
           <h1 className="text-5xl font-bold text-neutral-900 mb-4 tracking-tight">
             AWS Cost Calculator
           </h1>
-          <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
+          <p className="text-xl text-neutral-600">
             Compare costs between different AWS service configurations with real-time pricing data
           </p>
         </motion.div>
@@ -56,21 +56,15 @@ export default function LandingPage() {
               variants={cardVariants}
               initial="initial"
               animate="animate"
-              whileHover="hover"
-              whileTap="tap"
               custom={index}
             >
               <Link
                 to={service.path}
                 className="group block bg-white rounded-xl shadow-subtle p-8 h-full transition-normal"
               >
-                <motion.div
-                  className="text-6xl mb-6"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.2 }}
-                >
+                <div className="text-6xl mb-6">
                   {service.icon}
-                </motion.div>
+                </div>
                 <h2 className="text-2xl font-bold text-neutral-900 mb-3 group-hover:text-primary-600 transition-normal">
                   {service.title}
                 </h2>

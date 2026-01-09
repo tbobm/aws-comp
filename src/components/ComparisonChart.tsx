@@ -1,5 +1,7 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { motion } from 'framer-motion';
 import { GenericCostBreakdown } from '../types/comparison';
+import { fadeInUpVariants } from '../utils/animations';
 
 interface ComparisonChartProps {
   config1Label: string;
@@ -37,31 +39,53 @@ export default function ComparisonChart({
   });
 
   return (
-    <ResponsiveContainer width="100%" height={400}>
-      <BarChart
-        data={chartData}
-        margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis
-          dataKey="category"
-          angle={-45}
-          textAnchor="end"
-          height={100}
-          tick={{ fontSize: 12 }}
-        />
-        <YAxis
-          label={{ value: 'Cost ($/month)', angle: -90, position: 'insideLeft' }}
-          tick={{ fontSize: 12 }}
-        />
-        <Tooltip
-          formatter={(value: number) => `$${value.toFixed(2)}`}
-          contentStyle={{ backgroundColor: '#fff', border: '1px solid #ccc' }}
-        />
-        <Legend wrapperStyle={{ paddingTop: '10px' }} />
-        <Bar dataKey={config1Label} fill="#3b82f6" />
-        <Bar dataKey={config2Label} fill="#10b981" />
-      </BarChart>
-    </ResponsiveContainer>
+    <motion.div
+      variants={fadeInUpVariants}
+      initial="initial"
+      animate="animate"
+    >
+      <ResponsiveContainer width="100%" height={400}>
+        <BarChart
+          data={chartData}
+          margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+        >
+          <CartesianGrid strokeDasharray="3 3" stroke="#eeeeee" />
+          <XAxis
+            dataKey="category"
+            angle={-45}
+            textAnchor="end"
+            height={100}
+            tick={{ fontSize: 12, fill: '#616161' }}
+          />
+          <YAxis
+            label={{ value: 'Cost ($/month)', angle: -90, position: 'insideLeft', fill: '#616161' }}
+            tick={{ fontSize: 12, fill: '#616161' }}
+          />
+          <Tooltip
+            formatter={(value: number) => `$${value.toFixed(2)}`}
+            contentStyle={{
+              backgroundColor: '#fff',
+              border: '1px solid #e0e0e0',
+              boxShadow: '0 4px 12px -2px rgba(0, 0, 0, 0.12), 0 2px 6px -1px rgba(0, 0, 0, 0.08)',
+              transition: 'all 200ms cubic-bezier(0.4, 0, 0.2, 1)',
+              borderRadius: '0.375rem',
+            }}
+          />
+          <Legend wrapperStyle={{ paddingTop: '10px' }} />
+          <Bar
+            dataKey={config1Label}
+            fill="#2196f3"
+            animationDuration={500}
+            animationEasing="ease-in-out"
+          />
+          <Bar
+            dataKey={config2Label}
+            fill="#3f51b5"
+            animationDuration={500}
+            animationEasing="ease-in-out"
+          />
+        </BarChart>
+      </ResponsiveContainer>
+    </motion.div>
   );
 }

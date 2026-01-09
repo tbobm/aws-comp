@@ -14,7 +14,17 @@
       "Bash(git branch:*)",
       "Bash(npm run build:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(mkdir:*)",
+      "Bash(tree:*)",
+      "Bash(find:*)",
+      "Bash(cat:*)",
+      "Bash([ -f .planning/PROJECT.md ])",
+      "Bash({ echo \"ERROR: No PROJECT.md found. Run /gsd:new-project first.\")",
+      "Bash(exit 1)",
+      "Bash(})",
+      "WebSearch",
+      "Bash(git rev-parse:*)"
     ]
   },
   "enabledMcpjsonServers": [
