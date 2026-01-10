@@ -23,6 +23,13 @@ export default function LandingPage() {
       path: '/aurora',
       icon: '🗄️',
     },
+    {
+      id: 'lambda',
+      title: 'AWS Lambda',
+      description: 'Serverless compute with invocation-based pricing',
+      path: '/lambda',
+      icon: '⚡',
+    },
   ];
 
   return (

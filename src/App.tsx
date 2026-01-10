@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import AuroraComparison from './components/AuroraComparison';
 import S3Comparison from './components/S3Comparison';
+import LambdaComparison from './components/LambdaComparison';
 import LandingPage from './components/LandingPage';
 import ServiceSelector from './components/ServiceSelector';
 import { ServiceMetadata } from './types/comparison';
@@ -17,6 +18,12 @@ const services: ServiceMetadata[] = [
     title: 'RDS Aurora',
     description: 'Compare Serverless v2 vs Provisioned Aurora deployments',
     path: '/aurora',
+  },
+  {
+    id: 'lambda',
+    title: 'AWS Lambda',
+    description: 'Serverless compute with invocation-based pricing',
+    path: '/lambda',
   },
 ];
 
@@ -44,6 +51,17 @@ function App() {
                 <ServiceSelector services={services} />
                 <div className="container mx-auto px-4 py-8">
                   <AuroraComparison />
+                </div>
+              </>
+            }
+          />
+          <Route
+            path="/lambda"
+            element={
+              <>
+                <ServiceSelector services={services} />
+                <div className="container mx-auto px-4 py-8">
+                  <LambdaComparison />
                 </div>
               </>
             }
