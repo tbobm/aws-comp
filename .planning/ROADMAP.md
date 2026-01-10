@@ -8,6 +8,11 @@ Transform the AWS Architecture Comparison Tool from functional to visually stunn
 
 None
 
+## Milestones
+
+- ✅ **[v0.1 Design Foundation & Component Redesign](milestones/v0.1-ROADMAP.md)** — Phases 1-2 (shipped 2026-01-09)
+- 📋 **Future Work** — Phases 3-4 (deferred/optional)
+
 ## Phases
 
 **Phase Numbering:**
@@ -16,48 +21,24 @@ None
 
 Decimal phases appear between their surrounding integers in numeric order.
 
+<details>
+<summary>✅ v0.1 Design Foundation & Component Redesign (Phases 1-2) — SHIPPED 2026-01-09</summary>
+
 - [x] **Phase 1: Design Foundation** - Create design system, visual language, and animation strategy
 - [x] **Phase 2: Component Redesign** - Rebuild core UI components with new design system
+
+See [v0.1 milestone archive](milestones/v0.1-ROADMAP.md) for full phase details.
+
+</details>
+
+### 📋 Future Work (Optional)
+
 - [ ] **Phase 3: Interactive Features** - Add micro-interactions, hover effects, and exploration features
 - [ ] **Phase 4: Polish & Responsiveness** - Refine mobile/tablet experience and final visual polish
 
 ## Phase Details
 
-### Phase 1: Design Foundation
-**Goal**: Establish complete design system, visual language, component patterns, and animation strategy using frontend-designer skill
-**Depends on**: Nothing (first phase)
-**Research**: Likely (frontend-designer skill application, design system decisions)
-**Research topics**: Design patterns for cost comparison UIs, animation libraries compatible with React 18/Tailwind v4, Material Design integration approaches
-**Plans**: 1 (complete)
-**Status**: Complete
-
-Plans:
-- [x] **01-01: Design Foundation** - Animation system, enhanced Material Design theme, design patterns (26 min)
-  - Installed Framer Motion with 7 reusable animation variants
-  - Enhanced Material Design theme with cost-specific colors and 3-level elevation
-  - Documented comprehensive design system with accessibility guidelines
-
-### Phase 2: Component Redesign
-**Goal**: Rebuild core UI components (comparison cards, cost breakdowns, parameter controls) with new design system
-**Depends on**: Phase 1
-**Research**: Unlikely (building on existing React components and established patterns from Phase 1)
-**Plans**: 3 (all complete)
-**Status**: Complete
-
-Plans:
-- [x] **02-01: Layout and Navigation Redesign** - ComparisonLayout, ServiceSelector, LandingPage with animations (8 min)
-  - Applied cardVariants consistently across all card components
-  - Implemented elevation system with shadow-subtle/shadow-hover
-  - Added cost-specific highlights to comparison cards
-- [x] **02-02: Forms Redesign** - S3ConfigForm and AuroraConfigForm with animated controls (98 min)
-  - Applied interactiveControlVariants to all form inputs
-  - Created errorVariants for validation error shake animations
-  - Used AnimatePresence for smooth deployment type switching
-- [x] **02-03: Charts and Cost Displays** - ComparisonChart, CostBreakdown, AuroraCostBreakdown with animations (15 min)
-  - Applied Recharts animations with Material Design timing (500ms ease-in-out)
-  - Added costChangeVariants to all cost values for animated updates
-  - Used highlightVariants for total cost emphasis
-  - Implemented staggered fadeInUpVariants for breakdown items
+_Phases 1-2 details archived in [v0.1 milestone](milestones/v0.1-ROADMAP.md)_
 
 ### Phase 3: Interactive Features
 **Goal**: Implement micro-interactions, hover effects, drill-down details, and dynamic filtering for engaging exploration
