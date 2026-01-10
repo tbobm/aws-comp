@@ -5,15 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-01-09)
 
 **Core value:** The comparison experience must be visually stunning and highly interactive — users should feel engaged exploring different configurations, with smooth animations and intuitive interactions that make cost analysis both informative and delightful.
-**Current focus:** v0.1 milestone shipped — Future work optional
+**Current focus:** v1.0 New Direction — Expanding with compute services, dark mode, and multi-scenario comparison
 
 ## Current Position
 
-Milestone: v0.1 (Phases 1-2 complete)
-Status: Shipped
-Last activity: 2026-01-09 — v0.1 milestone complete
+Phase: 5 of 9 (Lambda Service Integration)
+Plan: Not started
+Status: Ready to plan
+Last activity: 2026-01-10 — Milestone v1.0 created
 
-Progress: ████████████ 100% (of v0.1 scope)
+Progress: ░░░░░░░░░░ 0%
 
 ## Performance Metrics
 
@@ -78,9 +79,13 @@ None yet.
 
 None yet.
 
+### Roadmap Evolution
+
+- Milestone v1.0 created: New direction with compute services (Lambda, ECS), dark mode, multi-scenario comparison/export, and cross-service analysis, 5 phases (Phase 5-9)
+
 ## Session Continuity
 
-Last session: 2026-01-09
-Stopped at: v0.1 milestone complete and tagged
+Last session: 2026-01-10
+Stopped at: Milestone v1.0 initialization
 Resume file: None
-Next action: Optional — Plan Phase 3 (Interactive Features) or conclude project
+Next action: Plan Phase 5 (Lambda Service Integration)

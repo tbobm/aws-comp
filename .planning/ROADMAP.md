@@ -11,7 +11,7 @@ None
 ## Milestones
 
 - ✅ **[v0.1 Design Foundation & Component Redesign](milestones/v0.1-ROADMAP.md)** — Phases 1-2 (shipped 2026-01-09)
-- 📋 **Future Work** — Phases 3-4 (deferred/optional)
+- 🚧 **v1.0 New Direction** — Phases 5-9 (in progress)
 
 ## Phases
 
@@ -31,41 +31,79 @@ See [v0.1 milestone archive](milestones/v0.1-ROADMAP.md) for full phase details.
 
 </details>
 
-### 📋 Future Work (Optional)
+### 🚧 v1.0 New Direction (In Progress)
 
-- [ ] **Phase 3: Interactive Features** - Add micro-interactions, hover effects, and exploration features
-- [ ] **Phase 4: Polish & Responsiveness** - Refine mobile/tablet experience and final visual polish
+**Milestone Goal:** Expand AWS comparison tool with compute services (Lambda, ECS), dark mode support, multi-scenario comparison with export capabilities, and unified cross-service cost analysis.
+
+- [ ] **Phase 5: Lambda Service Integration** - Add Lambda with invocation-based pricing and memory/duration configurations
+- [ ] **Phase 6: ECS Service Integration** - Add ECS with Fargate, EC2, and managed infrastructure pricing comparisons
+- [ ] **Phase 7: Dark Mode Theme** - Implement dark mode with theme toggle and persistent preference
+- [ ] **Phase 8: Multi-Scenario Comparison & Export** - Enable creating multiple volume scenarios and exporting comparison graphs
+- [ ] **Phase 9: Cross-Service Cost Analysis** - Unified cost comparison across all services with recommendations
 
 ## Phase Details
 
 _Phases 1-2 details archived in [v0.1 milestone](milestones/v0.1-ROADMAP.md)_
 
-### Phase 3: Interactive Features
-**Goal**: Implement micro-interactions, hover effects, drill-down details, and dynamic filtering for engaging exploration
-**Depends on**: Phase 2
-**Research**: Unlikely (implementing interactions defined in Phase 1 design)
+### Phase 5: Lambda Service Integration
+**Goal**: Add Lambda service with invocation-based pricing, memory/duration configurations, and cost calculations
+**Depends on**: v0.1 milestone complete
+**Research**: Likely (AWS Lambda pricing API, configuration options)
+**Research topics**: Lambda pricing model (requests + duration), memory scaling costs, cold start considerations
 **Plans**: TBD
 
 Plans:
-- TBD (will be defined during phase planning)
+- [ ] 05-01: TBD (run /gsd:plan-phase 5 to break down)
 
-### Phase 4: Polish & Responsiveness
-**Goal**: Refine mobile/tablet experience with polished touch interactions and final visual polish
-**Depends on**: Phase 3
-**Research**: Unlikely (refinement of existing implementation)
+### Phase 6: ECS Service Integration
+**Goal**: Add ECS service supporting Fargate, EC2, and managed infrastructure pricing comparisons
+**Depends on**: Phase 5
+**Research**: Likely (ECS pricing models, Fargate vs EC2 cost calculations)
+**Research topics**: ECS pricing tiers, Fargate vs EC2 cost structures, capacity provider strategies
 **Plans**: TBD
 
 Plans:
-- TBD (will be defined during phase planning)
+- [ ] 06-01: TBD (run /gsd:plan-phase 6 to break down)
+
+### Phase 7: Dark Mode Theme
+**Goal**: Implement dark mode with theme toggle, dark-optimized colors, and persistent preference
+**Depends on**: Phase 6
+**Research**: Unlikely (applying existing Material Design theme patterns)
+**Plans**: TBD
+
+Plans:
+- [ ] 07-01: TBD (run /gsd:plan-phase 7 to break down)
+
+### Phase 8: Multi-Scenario Comparison & Export
+**Goal**: Enable creating multiple volume scenarios (A, B, C) and exporting comparison graphs as downloadable images
+**Depends on**: Phase 7
+**Research**: Likely (chart export libraries, multi-scenario state management)
+**Research topics**: html2canvas or similar export libraries, multi-scenario state patterns, image generation from React components
+**Plans**: TBD
+
+Plans:
+- [ ] 08-01: TBD (run /gsd:plan-phase 8 to break down)
+
+### Phase 9: Cross-Service Cost Analysis
+**Goal**: Enable comparing costs across all services (RDS, S3, Aurora, Lambda, ECS) with unified recommendations
+**Depends on**: Phase 8
+**Research**: Unlikely (leveraging existing design system and cost calculation patterns)
+**Plans**: TBD
+
+Plans:
+- [ ] 09-01: TBD (run /gsd:plan-phase 9 to break down)
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4
+Phases execute in numeric order: 1 → 2 → 5 → 6 → 7 → 8 → 9
 
-| Phase | Plans Complete | Status | Completed |
-|-------|----------------|--------|-----------|
-| 1. Design Foundation | 1/1 | Complete | 2026-01-09 |
-| 2. Component Redesign | 3/3 | Complete | 2026-01-09 |
-| 3. Interactive Features | 0/? | Not started | - |
-| 4. Polish & Responsiveness | 0/? | Not started | - |
+| Phase | Milestone | Plans Complete | Status | Completed |
+|-------|-----------|----------------|--------|-----------|
+| 1. Design Foundation | v0.1 | 1/1 | Complete | 2026-01-09 |
+| 2. Component Redesign | v0.1 | 3/3 | Complete | 2026-01-09 |
+| 5. Lambda Service Integration | v1.0 | 0/? | Not started | - |
+| 6. ECS Service Integration | v1.0 | 0/? | Not started | - |
+| 7. Dark Mode Theme | v1.0 | 0/? | Not started | - |
+| 8. Multi-Scenario Comparison & Export | v1.0 | 0/? | Not started | - |
+| 9. Cross-Service Cost Analysis | v1.0 | 0/? | Not started | - |
