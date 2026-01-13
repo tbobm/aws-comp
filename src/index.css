@@ -110,6 +110,90 @@
   --ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
 }
 
+/* Dark mode theme variants */
+.dark {
+  /* Dark backgrounds - elevated surfaces with subtle gradients */
+  --color-bg-base: #121212;
+  --color-bg-elevated: #1e1e1e;
+  --color-bg-card: #2a2a2a;
+
+  /* Primary colors - lighter variants for dark mode visibility */
+  --color-primary-50: #1a237e;
+  --color-primary-100: #283593;
+  --color-primary-200: #303f9f;
+  --color-primary-300: #3949ab;
+  --color-primary-400: #5c6bc0;
+  --color-primary-500: #7986cb;
+  --color-primary-600: #9fa8da;
+  --color-primary-700: #c5cae9;
+  --color-primary-800: #e8eaf6;
+  --color-primary-900: #f5f5ff;
+
+  /* Secondary colors - lighter variants */
+  --color-secondary-50: #1a237e;
+  --color-secondary-100: #283593;
+  --color-secondary-200: #303f9f;
+  --color-secondary-300: #3949ab;
+  --color-secondary-400: #5c6bc0;
+  --color-secondary-500: #7986cb;
+  --color-secondary-600: #9fa8da;
+  --color-secondary-700: #c5cae9;
+  --color-secondary-800: #e8eaf6;
+  --color-secondary-900: #f5f5ff;
+
+  /* AWS accent colors - adjusted for dark mode */
+  --color-aws-orange: #ffad33;
+  --color-aws-orange-dark: #ff9900;
+  --color-aws-blue: #37475a;
+  --color-aws-blue-light: #4a5f7a;
+
+  /* Success, warning, error - desaturated for comfort */
+  --color-success: #66bb6a;
+  --color-success-light: #81c784;
+  --color-warning: #ffa726;
+  --color-warning-light: #ffb74d;
+  --color-error: #ef5350;
+  --color-error-light: #e57373;
+
+  /* Cost-specific semantic colors - adjusted brightness */
+  --color-cost-savings: #66bb6a;
+  --color-cost-savings-light: #81c784;
+  --color-cost-increase: #ef5350;
+  --color-cost-increase-light: #e57373;
+  --color-cost-neutral: #9e9e9e;
+  --color-cost-neutral-light: #bdbdbd;
+
+  /* Neutral grays - inverted for dark mode */
+  --color-neutral-50: #212121;
+  --color-neutral-100: #424242;
+  --color-neutral-200: #616161;
+  --color-neutral-300: #757575;
+  --color-neutral-400: #9e9e9e;
+  --color-neutral-500: #bdbdbd;
+  --color-neutral-600: #e0e0e0;
+  --color-neutral-700: #eeeeee;
+  --color-neutral-800: #f5f5f5;
+  --color-neutral-900: #fafafa;
+
+  /* Dark mode shadows - lighter opacity with colored shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+
+  /* Custom shadows - enhanced for dark mode depth */
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-strong: 0 8px 24px rgba(0, 0, 0, 0.6);
+
+  /* Elevation system - stronger contrast in dark mode */
+  --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 4px 12px -2px rgba(0, 0, 0, 0.5), 0 2px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-active: 0 8px 20px -4px rgba(0, 0, 0, 0.6), 0 4px 10px -2px rgba(0, 0, 0, 0.5);
+}
+
 /* Custom animations */
 @keyframes fade-in {
   from {
