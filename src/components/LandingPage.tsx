@@ -6,6 +6,7 @@ import {
   interactiveControlVariants,
   layoutTransitionConfig
 } from '../utils/animations';
+import ThemeToggle from './ThemeToggle';
 
 export default function LandingPage() {
   const services = [
@@ -41,6 +42,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-primary-50 to-neutral-50 py-16">
+      <ThemeToggle />
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-16 max-w-3xl mx-auto pb-8 border-b-2 border-primary-500/20"
