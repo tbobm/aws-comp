@@ -12,10 +12,11 @@ export default function ThemeToggle() {
       variants={interactiveControlVariants}
       whileHover="hover"
       whileTap="tap"
-      className="fixed top-6 right-6 z-50 p-3 bg-white dark:bg-neutral-800 rounded-full shadow-hover hover:shadow-active transition-all duration-normal border border-neutral-200 dark:border-neutral-700"
+      className="fixed top-6 right-6 z-50 p-3 bg-white dark:bg-neutral-800 rounded-full shadow-hover hover:shadow-active transition-all duration-normal border border-neutral-200 dark:border-neutral-700 flex items-center justify-center"
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       <motion.div
+        className="flex items-center justify-center"
         initial={false}
         animate={{
           rotate: isDark ? 180 : 0,

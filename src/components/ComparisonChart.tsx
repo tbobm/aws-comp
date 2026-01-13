@@ -2,6 +2,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 import { motion } from 'framer-motion';
 import { GenericCostBreakdown } from '../types/comparison';
 import { fadeInUpVariants } from '../utils/animations';
+import { useTheme } from '../contexts/ThemeContext';
 
 interface ComparisonChartProps {
   config1Label: string;
@@ -16,6 +17,8 @@ export default function ComparisonChart({
   breakdown1,
   breakdown2,
 }: ComparisonChartProps) {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
   const allCategories = new Set([
     ...breakdown1.items.map(item => item.label),
     ...breakdown2.items.map(item => item.label),
@@ -49,29 +52,35 @@ export default function ComparisonChart({
           data={chartData}
           margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="#eeeeee" />
+          <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#424242' : '#eeeeee'} />
           <XAxis
             dataKey="category"
             angle={-45}
             textAnchor="end"
             height={100}
-            tick={{ fontSize: 12, fill: '#616161' }}
+            tick={{ fontSize: 12, fill: isDark ? '#e0e0e0' : '#424242' }}
           />
           <YAxis
-            label={{ value: 'Cost ($/month)', angle: -90, position: 'insideLeft', fill: '#616161' }}
-            tick={{ fontSize: 12, fill: '#616161' }}
+            label={{ value: 'Cost ($/month)', angle: -90, position: 'insideLeft', fill: isDark ? '#e0e0e0' : '#424242' }}
+            tick={{ fontSize: 12, fill: isDark ? '#e0e0e0' : '#424242' }}
           />
           <Tooltip
             formatter={(value: number) => `$${value.toFixed(2)}`}
             contentStyle={{
-              backgroundColor: '#fff',
-              border: '1px solid #e0e0e0',
+              backgroundColor: isDark ? '#2a2a2a' : '#fff',
+              border: isDark ? '1px solid #424242' : '1px solid #e0e0e0',
               boxShadow: '0 4px 12px -2px rgba(0, 0, 0, 0.12), 0 2px 6px -1px rgba(0, 0, 0, 0.08)',
               transition: 'all 200ms cubic-bezier(0.4, 0, 0.2, 1)',
               borderRadius: '0.375rem',
+              color: isDark ? '#f5f5f5' : '#212121',
             }}
           />
-          <Legend wrapperStyle={{ paddingTop: '10px' }} />
+          <Legend
+            wrapperStyle={{
+              paddingTop: '10px',
+              color: isDark ? '#e0e0e0' : '#424242',
+            }}
+          />
           <Bar
             dataKey={config1Label}
             fill="#2196f3"
