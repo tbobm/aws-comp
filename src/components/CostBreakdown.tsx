@@ -33,7 +33,7 @@ export default function CostBreakdown({ breakdown, label }: CostBreakdownProps) 
             variants={fadeInUpVariants}
             className="flex justify-between items-center py-2 border-b border-neutral-200 dark:border-neutral-700"
           >
-            <span className="text-cost-neutral dark:text-neutral-400">{item.label}</span>
+            <span className="text-neutral-700 dark:text-neutral-300 font-medium">{item.label}</span>
             <motion.span
               key={item.cost}
               variants={costChangeVariants}

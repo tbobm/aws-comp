@@ -104,7 +104,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
             variants={interactiveControlVariants}
             whileHover="hover"
             whileTap="tap"
-            className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
+            className={`w-full px-3 py-2 border rounded-md bg-white dark:bg-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
               errors.storageGB ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
             }`}
           />
@@ -138,7 +138,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
             variants={interactiveControlVariants}
             whileHover="hover"
             whileTap="tap"
-            className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
+            className={`w-full px-3 py-2 border rounded-md bg-white dark:bg-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
               errors.putRequests ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
             }`}
           />
@@ -172,7 +172,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
             variants={interactiveControlVariants}
             whileHover="hover"
             whileTap="tap"
-            className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
+            className={`w-full px-3 py-2 border rounded-md bg-white dark:bg-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
               errors.getRequests ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
             }`}
           />
@@ -206,7 +206,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
             variants={interactiveControlVariants}
             whileHover="hover"
             whileTap="tap"
-            className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
+            className={`w-full px-3 py-2 border rounded-md bg-white dark:bg-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
               errors.dataTransferGB ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
             }`}
           />

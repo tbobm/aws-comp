@@ -104,7 +104,7 @@ export default function LambdaConfigForm({ config, onChange, label }: LambdaConf
           <div className="flex gap-2 mb-2">
             <select
               onChange={(e) => handleMemoryTierSelect(parseInt(e.target.value))}
-              className="px-3 py-1 text-sm border border-neutral-300 dark:border-neutral-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+              className="px-3 py-1 text-sm border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-900 dark:text-neutral-100 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
               defaultValue=""
             >
               <option value="" disabled>Quick select...</option>
@@ -125,7 +125,7 @@ export default function LambdaConfigForm({ config, onChange, label }: LambdaConf
             variants={interactiveControlVariants}
             whileHover="hover"
             whileTap="tap"
-            className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
+            className={`w-full px-3 py-2 border rounded-md bg-white dark:bg-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
               errors.memoryMB ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
             }`}
           />
@@ -159,7 +159,7 @@ export default function LambdaConfigForm({ config, onChange, label }: LambdaConf
             variants={interactiveControlVariants}
             whileHover="hover"
             whileTap="tap"
-            className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
+            className={`w-full px-3 py-2 border rounded-md bg-white dark:bg-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
               errors.monthlyInvocations ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
             }`}
           />
@@ -193,7 +193,7 @@ export default function LambdaConfigForm({ config, onChange, label }: LambdaConf
             variants={interactiveControlVariants}
             whileHover="hover"
             whileTap="tap"
-            className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
+            className={`w-full px-3 py-2 border rounded-md bg-white dark:bg-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
               errors.avgDurationMs ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
             }`}
           />
