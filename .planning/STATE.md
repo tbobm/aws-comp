@@ -10,7 +10,7 @@ See: .planning/PROJECT.md (updated 2026-01-09)
 ## Current Position
 
 Phase: 8 of 9 (Multi-Scenario Comparison & Export)
-Plan: 1 of 3 in current phase
+Plan: 1 of 2 in current phase
 Status: In progress
 Last activity: 2026-01-13 — Completed 08-01-PLAN.md
 
