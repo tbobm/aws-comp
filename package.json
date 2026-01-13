@@ -11,11 +11,14 @@
     "fetch-pricing": "tsx scripts/pricing/fetch-pricing.ts"
   },
   "dependencies": {
+    "@types/file-saver": "^2.0.7",
+    "file-saver": "^2.0.5",
     "framer-motion": "^12.25.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.9.5",
-    "recharts": "^3.3.0"
+    "recharts": "^3.3.0",
+    "recharts-to-png": "^3.0.1"
   },
   "devDependencies": {
     "@aws-sdk/client-pricing": "^3.926.0",
