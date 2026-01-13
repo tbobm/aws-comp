@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import AuroraComparison from './components/AuroraComparison';
 import S3Comparison from './components/S3Comparison';
 import LambdaComparison from './components/LambdaComparison';
+import EcsComparison from './components/EcsComparison';
 import LandingPage from './components/LandingPage';
 import ServiceSelector from './components/ServiceSelector';
 import { ServiceMetadata } from './types/comparison';
@@ -24,6 +25,12 @@ const services: ServiceMetadata[] = [
     title: 'AWS Lambda',
     description: 'Serverless compute with invocation-based pricing',
     path: '/lambda',
+  },
+  {
+    id: 'ecs',
+    title: 'ECS Fargate',
+    description: 'Compare Fargate costs between x86 and ARM Graviton2 architectures',
+    path: '/ecs',
   },
 ];
 
@@ -62,6 +69,17 @@ function App() {
                 <ServiceSelector services={services} />
                 <div className="container mx-auto px-4 py-8">
                   <LambdaComparison />
+                </div>
+              </>
+            }
+          />
+          <Route
+            path="/ecs"
+            element={
+              <>
+                <ServiceSelector services={services} />
+                <div className="container mx-auto px-4 py-8">
+                  <EcsComparison />
                 </div>
               </>
             }

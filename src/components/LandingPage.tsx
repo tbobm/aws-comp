@@ -30,6 +30,13 @@ export default function LandingPage() {
       path: '/lambda',
       icon: '⚡',
     },
+    {
+      id: 'ecs',
+      title: 'ECS Fargate',
+      description: 'Compare Fargate costs between x86 and ARM Graviton2 architectures',
+      path: '/ecs',
+      icon: '📦',
+    },
   ];
 
   return (
