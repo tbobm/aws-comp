@@ -8,10 +8,17 @@ import { fadeInUpVariants, cardVariants } from '../utils/animations';
 import { useTheme } from '../contexts/ThemeContext';
 
 interface ComparisonChartProps {
-  config1Label: string;
-  config2Label: string;
-  breakdown1: GenericCostBreakdown;
-  breakdown2: GenericCostBreakdown;
+  config1Label?: string;
+  config2Label?: string;
+  breakdown1?: GenericCostBreakdown;
+  breakdown2?: GenericCostBreakdown;
+  scenarios?: Array<{
+    id: string;
+    label: string;
+    breakdown: GenericCostBreakdown;
+    color: string;
+  }>;
+  serviceName?: string;
 }
 
 export default function ComparisonChart({
@@ -19,6 +26,8 @@ export default function ComparisonChart({
   config2Label,
   breakdown1,
   breakdown2,
+  scenarios,
+  serviceName = 'comparison',
 }: ComparisonChartProps) {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
@@ -35,36 +44,49 @@ export default function ComparisonChart({
     return abbreviations[label] || label;
   };
 
-  const allCategories = new Set([
-    ...breakdown1.items.map(item => item.label),
-    ...breakdown2.items.map(item => item.label),
-  ]);
+  // Use scenarios if provided, otherwise fall back to 2-config mode
+  const isMultiScenario = !!scenarios;
+  const breakdowns = isMultiScenario
+    ? scenarios!.map(s => ({ label: s.label, breakdown: s.breakdown, color: s.color }))
+    : [
+        { label: config1Label!, breakdown: breakdown1!, color: '#2196f3' },
+        { label: config2Label!, breakdown: breakdown2!, color: '#3f51b5' },
+      ];
+
+  const allCategories = new Set(
+    breakdowns.flatMap(b => b.breakdown.items.map(item => item.label))
+  );
 
   const chartData = Array.from(allCategories).map(category => {
-    const item1 = breakdown1.items.find(item => item.label === category);
-    const item2 = breakdown2.items.find(item => item.label === category);
-
-    return {
+    const dataPoint: Record<string, any> = {
       category: abbreviateLabel(category),
       fullCategory: category,
-      [config1Label]: item1?.cost || 0,
-      [config2Label]: item2?.cost || 0,
     };
+    breakdowns.forEach(b => {
+      const item = b.breakdown.items.find(item => item.label === category);
+      dataPoint[b.label] = item?.cost || 0;
+    });
+    return dataPoint;
   });
 
-  chartData.push({
+  const totalDataPoint: Record<string, any> = {
     category: 'Total',
     fullCategory: 'Total',
-    [config1Label]: breakdown1.total,
-    [config2Label]: breakdown2.total,
+  };
+  breakdowns.forEach(b => {
+    totalDataPoint[b.label] = b.breakdown.total;
   });
+  chartData.push(totalDataPoint);
 
   const handleDownload = async () => {
     setIsDownloading(true);
     try {
       const png = await getPng();
       if (png) {
-        FileSaver.saveAs(png, 'aws-comparison.png');
+        const filename = isMultiScenario
+          ? `aws-${serviceName}-${breakdowns.length}-scenarios.png`
+          : 'aws-comparison.png';
+        FileSaver.saveAs(png, filename);
       }
     } catch (error) {
       console.error('Error downloading chart:', error);
@@ -121,18 +143,15 @@ export default function ComparisonChart({
               color: isDark ? '#fafafa' : '#212121',
             }}
           />
-          <Bar
-            dataKey={config1Label}
-            fill="#2196f3"
-            animationDuration={500}
-            animationEasing="ease-in-out"
-          />
-          <Bar
-            dataKey={config2Label}
-            fill="#3f51b5"
-            animationDuration={500}
-            animationEasing="ease-in-out"
-          />
+          {breakdowns.map(b => (
+            <Bar
+              key={b.label}
+              dataKey={b.label}
+              fill={b.color}
+              animationDuration={500}
+              animationEasing="ease-in-out"
+            />
+          ))}
         </BarChart>
       </ResponsiveContainer>
 
