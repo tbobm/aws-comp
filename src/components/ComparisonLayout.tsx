@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ComparisonLayoutProps, GenericCostBreakdown } from '../types/comparison';
+import { ComparisonLayoutProps, GenericCostBreakdown, Scenario } from '../types/comparison';
 import ComparisonChart from './ComparisonChart';
 import {
   cardVariants,
@@ -8,6 +8,13 @@ import {
   fadeInUpVariants,
   layoutTransitionConfig
 } from '../utils/animations';
+
+const SCENARIO_COLORS = [
+  '#2196f3', // primary-500
+  '#3f51b5', // secondary-500
+  '#9c27b0', // purple-500
+  '#009688', // teal-500
+];
 
 export default function ComparisonLayout<TConfig, TBreakdown extends GenericCostBreakdown>({
   serviceName,
@@ -18,9 +25,40 @@ export default function ComparisonLayout<TConfig, TBreakdown extends GenericCost
   defaultConfig2,
   configLabel1 = 'Configuration 1',
   configLabel2 = 'Configuration 2',
+  enableMultiScenario = false,
 }: ComparisonLayoutProps<TConfig, TBreakdown>) {
+  // Multi-scenario state
+  const [scenarios, setScenarios] = useState<Scenario<TConfig>[]>(() => [
+    { id: 'A', label: 'Scenario A', config: defaultConfig1 },
+    { id: 'B', label: 'Scenario B', config: defaultConfig2 },
+  ]);
+
+  // Standard two-config state
   const [config1, setConfig1] = useState<TConfig>(defaultConfig1);
   const [config2, setConfig2] = useState<TConfig>(defaultConfig2);
+
+  // Helper functions for multi-scenario mode
+  const addScenario = () => {
+    if (scenarios.length >= 4) return;
+    const nextLetter = String.fromCharCode(65 + scenarios.length); // A=65
+    setScenarios([
+      ...scenarios,
+      { id: nextLetter, label: `Scenario ${nextLetter}`, config: defaultConfig1 },
+    ]);
+  };
+
+  const removeScenario = (id: string) => {
+    if (scenarios.length <= 2) return;
+    setScenarios(scenarios.filter(s => s.id !== id));
+  };
+
+  const updateScenarioConfig = (id: string, config: TConfig) => {
+    setScenarios(scenarios.map(s => s.id === id ? { ...s, config } : s));
+  };
+
+  const updateScenarioLabel = (id: string, label: string) => {
+    setScenarios(scenarios.map(s => s.id === id ? { ...s, label } : s));
+  };
 
   const breakdown1 = calculateCost(config1);
   const breakdown2 = calculateCost(config2);

@@ -9,6 +9,12 @@ export interface GenericCostBreakdown {
   total: number;
 }
 
+export type Scenario<TConfig> = {
+  id: string;
+  label: string;
+  config: TConfig;
+}
+
 export interface ServiceMetadata {
   id: string;
   title: string;
@@ -34,6 +40,7 @@ export interface ComparisonLayoutProps<TConfig, TBreakdown extends GenericCostBr
   defaultConfig2: TConfig;
   configLabel1?: string;
   configLabel2?: string;
+  enableMultiScenario?: boolean;
 }
 
 export interface ConfigFormProps<TConfig> {
