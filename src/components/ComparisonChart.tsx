@@ -58,11 +58,11 @@ export default function ComparisonChart({
             angle={-45}
             textAnchor="end"
             height={100}
-            tick={{ fontSize: 12, fill: isDark ? '#e0e0e0' : '#424242' }}
+            tick={{ fontSize: 12, fill: isDark ? '#fafafa' : '#212121' }}
           />
           <YAxis
-            label={{ value: 'Cost ($/month)', angle: -90, position: 'insideLeft', fill: isDark ? '#e0e0e0' : '#424242' }}
-            tick={{ fontSize: 12, fill: isDark ? '#e0e0e0' : '#424242' }}
+            label={{ value: 'Cost ($/month)', angle: -90, position: 'insideLeft', fill: isDark ? '#fafafa' : '#212121' }}
+            tick={{ fontSize: 12, fill: isDark ? '#fafafa' : '#212121' }}
           />
           <Tooltip
             formatter={(value: number) => `$${value.toFixed(2)}`}
@@ -78,7 +78,7 @@ export default function ComparisonChart({
           <Legend
             wrapperStyle={{
               paddingTop: '10px',
-              color: isDark ? '#e0e0e0' : '#424242',
+              color: isDark ? '#fafafa' : '#212121',
             }}
           />
           <Bar
