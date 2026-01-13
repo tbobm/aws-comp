@@ -23,9 +23,9 @@ export default function AuroraCostBreakdown({ breakdown }: AuroraCostBreakdownPr
       variants={cardVariants}
       initial="initial"
       animate="animate"
-      className="bg-neutral-50 rounded-lg p-6 mt-6 shadow-subtle border-l-4 border-secondary-500"
+      className="bg-neutral-50 dark:bg-neutral-900 rounded-lg p-6 mt-6 shadow-subtle border-l-4 border-secondary-500 dark:border-secondary-400"
     >
-      <h3 className="text-lg font-semibold text-neutral-800 mb-4">Cost Breakdown</h3>
+      <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200 mb-4">Cost Breakdown</h3>
 
       <motion.div
         variants={fadeInUpVariants}
@@ -37,29 +37,29 @@ export default function AuroraCostBreakdown({ breakdown }: AuroraCostBreakdownPr
           <motion.div
             key={item.label}
             variants={fadeInUpVariants}
-            className="flex justify-between items-center py-2 border-b border-neutral-200"
+            className="flex justify-between items-center py-2 border-b border-neutral-200 dark:border-neutral-700"
           >
-            <span className="text-cost-neutral">{item.label}</span>
+            <span className="text-neutral-700 dark:text-neutral-300 font-medium">{item.label}</span>
             <motion.span
               key={item.value}
               variants={costChangeVariants}
               initial="initial"
               animate="animate"
-              className="font-medium text-neutral-800"
+              className="font-medium text-neutral-800 dark:text-neutral-200"
             >
               ${formatCost(item.value)}
             </motion.span>
           </motion.div>
         ))}
 
-        <div className="flex justify-between items-center pt-4 mt-2 border-t-2 border-neutral-300">
-          <span className="text-lg font-bold text-neutral-900">Total Cost</span>
+        <div className="flex justify-between items-center pt-4 mt-2 border-t-2 border-neutral-300 dark:border-neutral-600">
+          <span className="text-lg font-bold text-neutral-900 dark:text-neutral-100">Total Cost</span>
           <motion.span
             key={breakdown.totalCost}
             variants={highlightVariants}
             initial="initial"
             animate="animate"
-            className="text-lg font-bold text-secondary-600"
+            className="text-lg font-bold text-secondary-600 dark:text-secondary-400"
           >
             ${formatCost(breakdown.totalCost)} / month
           </motion.span>
