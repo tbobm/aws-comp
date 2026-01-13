@@ -35,8 +35,8 @@ See [v0.1 milestone archive](milestones/v0.1-ROADMAP.md) for full phase details.
 
 **Milestone Goal:** Expand AWS comparison tool with compute services (Lambda, ECS), dark mode support, multi-scenario comparison with export capabilities, and unified cross-service cost analysis.
 
-- [ ] **Phase 5: Lambda Service Integration** - Add Lambda with invocation-based pricing and memory/duration configurations
-- [ ] **Phase 6: ECS Service Integration** - Add ECS with Fargate, EC2, and managed infrastructure pricing comparisons
+- [x] **Phase 5: Lambda Service Integration** - Add Lambda with invocation-based pricing and memory/duration configurations
+- [x] **Phase 6: ECS Service Integration** - Add ECS with Fargate, EC2, and managed infrastructure pricing comparisons
 - [ ] **Phase 7: Dark Mode Theme** - Implement dark mode with theme toggle and persistent preference
 - [ ] **Phase 8: Multi-Scenario Comparison & Export** - Enable creating multiple volume scenarios and exporting comparison graphs
 - [ ] **Phase 9: Cross-Service Cost Analysis** - Unified cost comparison across all services with recommendations
@@ -53,17 +53,17 @@ _Phases 1-2 details archived in [v0.1 milestone](milestones/v0.1-ROADMAP.md)_
 **Plans**: TBD
 
 Plans:
-- [ ] 05-01: TBD (run /gsd:plan-phase 5 to break down)
+- [x] 05-01: Lambda Core Implementation - COMPLETE (2026-01-11)
 
 ### Phase 6: ECS Service Integration
 **Goal**: Add ECS service supporting Fargate, EC2, and managed infrastructure pricing comparisons
 **Depends on**: Phase 5
 **Research**: Likely (ECS pricing models, Fargate vs EC2 cost calculations)
 **Research topics**: ECS pricing tiers, Fargate vs EC2 cost structures, capacity provider strategies
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 06-01: TBD (run /gsd:plan-phase 6 to break down)
+- [x] 06-01: ECS Core Implementation - COMPLETE (2026-01-13)
 
 ### Phase 7: Dark Mode Theme
 **Goal**: Implement dark mode with theme toggle, dark-optimized colors, and persistent preference
@@ -102,8 +102,8 @@ Phases execute in numeric order: 1 → 2 → 5 → 6 → 7 → 8 → 9
 |-------|-----------|----------------|--------|-----------|
 | 1. Design Foundation | v0.1 | 1/1 | Complete | 2026-01-09 |
 | 2. Component Redesign | v0.1 | 3/3 | Complete | 2026-01-09 |
-| 5. Lambda Service Integration | v1.0 | 0/? | Not started | - |
-| 6. ECS Service Integration | v1.0 | 0/? | Not started | - |
+| 5. Lambda Service Integration | v1.0 | 1/1 | Complete | 2026-01-11 |
+| 6. ECS Service Integration | v1.0 | 1/1 | Complete | 2026-01-13 |
 | 7. Dark Mode Theme | v1.0 | 0/? | Not started | - |
 | 8. Multi-Scenario Comparison & Export | v1.0 | 0/? | Not started | - |
 | 9. Cross-Service Cost Analysis | v1.0 | 0/? | Not started | - |
