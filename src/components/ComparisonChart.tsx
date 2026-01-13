@@ -19,6 +19,17 @@ export default function ComparisonChart({
 }: ComparisonChartProps) {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
+
+  // Abbreviate long labels to prevent overlap
+  const abbreviateLabel = (label: string): string => {
+    const abbreviations: Record<string, string> = {
+      'I/O Requests': 'I/O Req',
+      'Backup Storage': 'Backup',
+      'Data Transfer': 'Transfer',
+    };
+    return abbreviations[label] || label;
+  };
+
   const allCategories = new Set([
     ...breakdown1.items.map(item => item.label),
     ...breakdown2.items.map(item => item.label),
@@ -29,7 +40,8 @@ export default function ComparisonChart({
     const item2 = breakdown2.items.find(item => item.label === category);
 
     return {
-      category,
+      category: abbreviateLabel(category),
+      fullCategory: category,
       [config1Label]: item1?.cost || 0,
       [config2Label]: item2?.cost || 0,
     };
@@ -37,6 +49,7 @@ export default function ComparisonChart({
 
   chartData.push({
     category: 'Total',
+    fullCategory: 'Total',
     [config1Label]: breakdown1.total,
     [config2Label]: breakdown2.total,
   });
@@ -46,23 +59,31 @@ export default function ComparisonChart({
       variants={fadeInUpVariants}
       initial="initial"
       animate="animate"
+      className="pb-[30px]"
     >
       <ResponsiveContainer width="100%" height={400}>
         <BarChart
           data={chartData}
-          margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+          margin={{ top: 20, right: 30, left: 20, bottom: 30 }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#424242' : '#eeeeee'} />
           <XAxis
             dataKey="category"
-            angle={-45}
-            textAnchor="end"
-            height={100}
-            tick={{ fontSize: 12, fill: isDark ? '#fafafa' : '#212121' }}
+            angle={0}
+            textAnchor="middle"
+            height={60}
+            interval={0}
+            tick={{ fontSize: 13, fill: '#E5E7EB', fontWeight: 500 }}
+            style={{ minHeight: '10px' }}
           />
           <YAxis
-            label={{ value: 'Cost ($/month)', angle: -90, position: 'insideLeft', fill: isDark ? '#fafafa' : '#212121' }}
-            tick={{ fontSize: 12, fill: isDark ? '#fafafa' : '#212121' }}
+            label={{
+              value: 'Cost ($/month)',
+              angle: -90,
+              position: 'insideLeft',
+              style: { fontSize: 13, fill: '#E5E7EB', textAnchor: 'middle' }
+            }}
+            tick={{ fontSize: 13, fill: '#E5E7EB' }}
           />
           <Tooltip
             formatter={(value: number) => `$${value.toFixed(2)}`}
