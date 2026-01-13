@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ComparisonLayoutProps, GenericCostBreakdown, Scenario } from '../types/comparison';
 import ComparisonChart from './ComparisonChart';
 import {
@@ -92,39 +92,104 @@ export default function ComparisonLayout<TConfig, TBreakdown extends GenericCost
         </p>
       </motion.div>
 
-      <motion.div
-        className="grid grid-cols-1 lg:grid-cols-2 gap-6"
-        layout
-        transition={layoutTransitionConfig}
-      >
-        <motion.div
-          className={`bg-white dark:bg-neutral-800 rounded-xl shadow-subtle p-6 border-t-2 border-primary-400 dark:border-primary-500 ${cheaperOption === 1 ? 'bg-cost-savings-light dark:bg-cost-savings/20' : ''}`}
-          variants={cardVariants}
-          initial="initial"
-          animate="animate"
-          whileHover="hover"
-        >
-          <div className="flex items-center mb-4">
-            <div className="w-3 h-3 rounded-full bg-primary-500 dark:bg-primary-400 mr-2"></div>
-            <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">{configLabel1}</h2>
-          </div>
-          <ConfigForm config={config1} onChange={setConfig1} label={configLabel1} />
-        </motion.div>
+      {enableMultiScenario ? (
+        <div className="space-y-6">
+          <AnimatePresence mode="popLayout">
+            {scenarios.map((scenario, index) => (
+              <motion.div
+                key={scenario.id}
+                className="bg-white dark:bg-neutral-800 rounded-xl shadow-subtle p-6 border-l-4 relative"
+                style={{ borderLeftColor: SCENARIO_COLORS[index % SCENARIO_COLORS.length] }}
+                variants={fadeInUpVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                layout
+                transition={layoutTransitionConfig}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div
+                    className="w-4 h-4 rounded-full flex-shrink-0"
+                    style={{ backgroundColor: SCENARIO_COLORS[index % SCENARIO_COLORS.length] }}
+                  ></div>
+                  <input
+                    type="text"
+                    value={scenario.label}
+                    onChange={(e) => updateScenarioLabel(scenario.id, e.target.value)}
+                    className="text-xl font-semibold bg-white dark:bg-neutral-900 border-b-2 border-transparent hover:border-neutral-300 dark:hover:border-neutral-600 focus:border-primary-500 dark:focus:border-primary-400 focus:outline-none transition-colors text-neutral-900 dark:text-neutral-100 px-2 py-1"
+                  />
+                  {scenarios.length > 2 && (
+                    <button
+                      onClick={() => removeScenario(scenario.id)}
+                      className="ml-auto w-8 h-8 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-900/40 flex items-center justify-center transition-colors duration-200 text-xl font-bold"
+                      aria-label="Remove scenario"
+                    >
+                      ×
+                    </button>
+                  )}
+                </div>
+                <div className="mb-4">
+                  <ConfigForm
+                    config={scenario.config}
+                    onChange={(newConfig) => updateScenarioConfig(scenario.id, newConfig)}
+                    label={scenario.label}
+                  />
+                </div>
+                <CostBreakdownComponent
+                  breakdown={calculateCost(scenario.config)}
+                  label={scenario.label}
+                />
+              </motion.div>
+            ))}
+          </AnimatePresence>
 
+          <motion.button
+            onClick={addScenario}
+            disabled={scenarios.length >= 4}
+            className="w-full py-4 px-6 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-xl border-2 border-dashed border-primary-300 dark:border-primary-700 hover:border-primary-500 dark:hover:border-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 font-medium"
+            variants={cardVariants}
+            whileHover="hover"
+            whileTap="tap"
+          >
+            <span className="text-2xl">+</span>
+            <span>Add Scenario</span>
+          </motion.button>
+        </div>
+      ) : (
         <motion.div
-          className={`bg-white dark:bg-neutral-800 rounded-xl shadow-subtle p-6 border-t-2 border-secondary-400 dark:border-secondary-500 ${cheaperOption === 2 ? 'bg-cost-savings-light dark:bg-cost-savings/20' : ''}`}
-          variants={cardVariants}
-          initial="initial"
-          animate="animate"
-          whileHover="hover"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6"
+          layout
+          transition={layoutTransitionConfig}
         >
-          <div className="flex items-center mb-4">
-            <div className="w-3 h-3 rounded-full bg-secondary-500 dark:bg-secondary-400 mr-2"></div>
-            <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">{configLabel2}</h2>
-          </div>
-          <ConfigForm config={config2} onChange={setConfig2} label={configLabel2} />
+          <motion.div
+            className={`bg-white dark:bg-neutral-800 rounded-xl shadow-subtle p-6 border-t-2 border-primary-400 dark:border-primary-500 ${cheaperOption === 1 ? 'bg-cost-savings-light dark:bg-cost-savings/20' : ''}`}
+            variants={cardVariants}
+            initial="initial"
+            animate="animate"
+            whileHover="hover"
+          >
+            <div className="flex items-center mb-4">
+              <div className="w-3 h-3 rounded-full bg-primary-500 dark:bg-primary-400 mr-2"></div>
+              <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">{configLabel1}</h2>
+            </div>
+            <ConfigForm config={config1} onChange={setConfig1} label={configLabel1} />
+          </motion.div>
+
+          <motion.div
+            className={`bg-white dark:bg-neutral-800 rounded-xl shadow-subtle p-6 border-t-2 border-secondary-400 dark:border-secondary-500 ${cheaperOption === 2 ? 'bg-cost-savings-light dark:bg-cost-savings/20' : ''}`}
+            variants={cardVariants}
+            initial="initial"
+            animate="animate"
+            whileHover="hover"
+          >
+            <div className="flex items-center mb-4">
+              <div className="w-3 h-3 rounded-full bg-secondary-500 dark:bg-secondary-400 mr-2"></div>
+              <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">{configLabel2}</h2>
+            </div>
+            <ConfigForm config={config2} onChange={setConfig2} label={configLabel2} />
+          </motion.div>
         </motion.div>
-      </motion.div>
+      )}
 
       <motion.div
         className="bg-white dark:bg-neutral-800 rounded-xl shadow-hover p-8"
