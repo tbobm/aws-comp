@@ -37,7 +37,7 @@ const services: ServiceMetadata[] = [
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-neutral-50">
+      <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900">
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route
@@ -45,7 +45,7 @@ function App() {
             element={
               <>
                 <ServiceSelector services={services} />
-                <div className="container mx-auto px-4 py-8">
+                <div className="container mx-auto px-4 py-8 dark:bg-neutral-900">
                   <S3Comparison />
                 </div>
               </>
@@ -56,7 +56,7 @@ function App() {
             element={
               <>
                 <ServiceSelector services={services} />
-                <div className="container mx-auto px-4 py-8">
+                <div className="container mx-auto px-4 py-8 dark:bg-neutral-900">
                   <AuroraComparison />
                 </div>
               </>
@@ -67,7 +67,7 @@ function App() {
             element={
               <>
                 <ServiceSelector services={services} />
-                <div className="container mx-auto px-4 py-8">
+                <div className="container mx-auto px-4 py-8 dark:bg-neutral-900">
                   <LambdaComparison />
                 </div>
               </>
@@ -78,7 +78,7 @@ function App() {
             element={
               <>
                 <ServiceSelector services={services} />
-                <div className="container mx-auto px-4 py-8">
+                <div className="container mx-auto px-4 py-8 dark:bg-neutral-900">
                   <EcsComparison />
                 </div>
               </>
