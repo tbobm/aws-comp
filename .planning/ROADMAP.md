@@ -37,7 +37,7 @@ See [v0.1 milestone archive](milestones/v0.1-ROADMAP.md) for full phase details.
 
 - [x] **Phase 5: Lambda Service Integration** - Add Lambda with invocation-based pricing and memory/duration configurations
 - [x] **Phase 6: ECS Service Integration** - Add ECS with Fargate, EC2, and managed infrastructure pricing comparisons
-- [ ] **Phase 7: Dark Mode Theme** - Implement dark mode with theme toggle and persistent preference
+- [x] **Phase 7: Dark Mode Theme** - Implement dark mode with theme toggle and persistent preference
 - [ ] **Phase 8: Multi-Scenario Comparison & Export** - Enable creating multiple volume scenarios and exporting comparison graphs
 - [ ] **Phase 9: Cross-Service Cost Analysis** - Unified cost comparison across all services with recommendations
 
@@ -69,10 +69,10 @@ Plans:
 **Goal**: Implement dark mode with theme toggle, dark-optimized colors, and persistent preference
 **Depends on**: Phase 6
 **Research**: Unlikely (applying existing Material Design theme patterns)
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 07-01: TBD (run /gsd:plan-phase 7 to break down)
+- [x] 07-01: Dark Mode Implementation - COMPLETE (2026-01-13)
 
 ### Phase 8: Multi-Scenario Comparison & Export
 **Goal**: Enable creating multiple volume scenarios (A, B, C) and exporting comparison graphs as downloadable images
@@ -104,6 +104,6 @@ Phases execute in numeric order: 1 → 2 → 5 → 6 → 7 → 8 → 9
 | 2. Component Redesign | v0.1 | 3/3 | Complete | 2026-01-09 |
 | 5. Lambda Service Integration | v1.0 | 1/1 | Complete | 2026-01-11 |
 | 6. ECS Service Integration | v1.0 | 1/1 | Complete | 2026-01-13 |
-| 7. Dark Mode Theme | v1.0 | 0/? | Not started | - |
+| 7. Dark Mode Theme | v1.0 | 1/1 | Complete | 2026-01-13 |
 | 8. Multi-Scenario Comparison & Export | v1.0 | 0/? | Not started | - |
 | 9. Cross-Service Cost Analysis | v1.0 | 0/? | Not started | - |
