@@ -63,13 +63,13 @@ export default function EcsConfigForm({ config, onChange, label }: EcsConfigForm
       variants={fadeInUpVariants}
       initial="initial"
       animate="animate"
-      className="bg-white rounded-lg shadow-md p-6"
+      className="bg-white dark:bg-neutral-800 rounded-lg shadow-md p-6"
     >
-      <h2 className="text-2xl font-bold mb-6 text-neutral-800">{label}</h2>
+      <h2 className="text-2xl font-bold mb-6 text-neutral-800 dark:text-neutral-100">{label}</h2>
 
       <div className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-neutral-700 mb-2">
+          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
             Architecture
           </label>
           <motion.select
@@ -78,7 +78,7 @@ export default function EcsConfigForm({ config, onChange, label }: EcsConfigForm
             variants={interactiveControlVariants}
             whileHover="hover"
             whileTap="tap"
-            className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover"
+            className="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover"
           >
             {Object.entries(ECS_ARCHITECTURE_METADATA).map(([key, metadata]) => (
               <option key={key} value={key}>
@@ -90,20 +90,20 @@ export default function EcsConfigForm({ config, onChange, label }: EcsConfigForm
             key={config.architecture}
             variants={costChangeVariants}
             animate="animate"
-            className="mt-1 text-sm text-neutral-500"
+            className="mt-1 text-sm text-neutral-500 dark:text-neutral-400"
           >
             {ECS_ARCHITECTURE_METADATA[config.architecture].description}
           </motion.p>
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-neutral-700 mb-2">
+          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
             vCPU
           </label>
           <div className="flex gap-2 mb-2">
             <select
               onChange={(e) => handleVcpuSelect(parseFloat(e.target.value))}
-              className="px-3 py-1 text-sm border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+              className="px-3 py-1 text-sm border border-neutral-300 dark:border-neutral-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
               defaultValue=""
             >
               <option value="" disabled>Quick select...</option>
@@ -124,7 +124,7 @@ export default function EcsConfigForm({ config, onChange, label }: EcsConfigForm
             variants={interactiveControlVariants}
             whileHover="hover"
             whileTap="tap"
-            className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover"
+            className="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover"
           />
         </div>
 
@@ -132,7 +132,7 @@ export default function EcsConfigForm({ config, onChange, label }: EcsConfigForm
           variants={errors.memoryGB ? errorVariants : undefined}
           animate={errors.memoryGB ? "animate" : undefined}
         >
-          <label className="block text-sm font-medium text-neutral-700 mb-2">
+          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
             Memory (GB)
           </label>
           <motion.input
@@ -146,7 +146,7 @@ export default function EcsConfigForm({ config, onChange, label }: EcsConfigForm
             whileHover="hover"
             whileTap="tap"
             className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
-              errors.memoryGB ? 'border-red-500' : 'border-neutral-300'
+              errors.memoryGB ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
             }`}
           />
           {currentMemoryRange && (
@@ -154,7 +154,7 @@ export default function EcsConfigForm({ config, onChange, label }: EcsConfigForm
               key={config.vCPU}
               variants={costChangeVariants}
               animate="animate"
-              className="mt-1 text-sm text-neutral-500"
+              className="mt-1 text-sm text-neutral-500 dark:text-neutral-400"
             >
               Range: {currentMemoryRange.minGB} GB - {currentMemoryRange.maxGB} GB for {config.vCPU} vCPU
             </motion.p>
@@ -165,7 +165,7 @@ export default function EcsConfigForm({ config, onChange, label }: EcsConfigForm
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="mt-1 text-sm text-red-600"
+                className="mt-1 text-sm text-red-600 dark:text-red-400"
               >
                 {errors.memoryGB}
               </motion.p>
@@ -177,7 +177,7 @@ export default function EcsConfigForm({ config, onChange, label }: EcsConfigForm
           variants={errors.monthlyHours ? errorVariants : undefined}
           animate={errors.monthlyHours ? "animate" : undefined}
         >
-          <label className="block text-sm font-medium text-neutral-700 mb-2">
+          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
             Monthly Hours
           </label>
           <motion.input
@@ -191,11 +191,11 @@ export default function EcsConfigForm({ config, onChange, label }: EcsConfigForm
             whileHover="hover"
             whileTap="tap"
             className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
-              errors.monthlyHours ? 'border-red-500' : 'border-neutral-300'
+              errors.monthlyHours ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
             }`}
           />
           <motion.p
-            className="mt-1 text-sm text-neutral-500"
+            className="mt-1 text-sm text-neutral-500 dark:text-neutral-400"
           >
             Full month = 730 hours
           </motion.p>
@@ -205,7 +205,7 @@ export default function EcsConfigForm({ config, onChange, label }: EcsConfigForm
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="mt-1 text-sm text-red-600"
+                className="mt-1 text-sm text-red-600 dark:text-red-400"
               >
                 {errors.monthlyHours}
               </motion.p>
@@ -220,7 +220,7 @@ export default function EcsConfigForm({ config, onChange, label }: EcsConfigForm
           animate="animate"
         >
           <div className="flex justify-between items-center">
-            <span className="text-sm font-medium text-neutral-700">Monthly Cost:</span>
+            <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">Monthly Cost:</span>
             <span className="text-2xl font-bold text-primary-600">
               ${currentCost.totalCost.toFixed(2)}
             </span>

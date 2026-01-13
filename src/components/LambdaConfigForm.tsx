@@ -61,13 +61,13 @@ export default function LambdaConfigForm({ config, onChange, label }: LambdaConf
       variants={fadeInUpVariants}
       initial="initial"
       animate="animate"
-      className="bg-white rounded-lg shadow-md p-6"
+      className="bg-white dark:bg-neutral-800 rounded-lg shadow-md p-6"
     >
-      <h2 className="text-2xl font-bold mb-6 text-neutral-800">{label}</h2>
+      <h2 className="text-2xl font-bold mb-6 text-neutral-800 dark:text-neutral-100">{label}</h2>
 
       <div className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-neutral-700 mb-2">
+          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
             Architecture
           </label>
           <motion.select
@@ -76,7 +76,7 @@ export default function LambdaConfigForm({ config, onChange, label }: LambdaConf
             variants={interactiveControlVariants}
             whileHover="hover"
             whileTap="tap"
-            className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover"
+            className="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover"
           >
             {Object.entries(LAMBDA_ARCHITECTURE_METADATA).map(([key, metadata]) => (
               <option key={key} value={key}>
@@ -88,7 +88,7 @@ export default function LambdaConfigForm({ config, onChange, label }: LambdaConf
             key={config.architecture}
             variants={costChangeVariants}
             animate="animate"
-            className="mt-1 text-sm text-neutral-500"
+            className="mt-1 text-sm text-neutral-500 dark:text-neutral-400"
           >
             {LAMBDA_ARCHITECTURE_METADATA[config.architecture].description}
           </motion.p>
@@ -98,13 +98,13 @@ export default function LambdaConfigForm({ config, onChange, label }: LambdaConf
           variants={errors.memoryMB ? errorVariants : undefined}
           animate={errors.memoryMB ? "animate" : undefined}
         >
-          <label className="block text-sm font-medium text-neutral-700 mb-2">
+          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
             Memory (MB)
           </label>
           <div className="flex gap-2 mb-2">
             <select
               onChange={(e) => handleMemoryTierSelect(parseInt(e.target.value))}
-              className="px-3 py-1 text-sm border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+              className="px-3 py-1 text-sm border border-neutral-300 dark:border-neutral-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
               defaultValue=""
             >
               <option value="" disabled>Quick select...</option>
@@ -126,7 +126,7 @@ export default function LambdaConfigForm({ config, onChange, label }: LambdaConf
             whileHover="hover"
             whileTap="tap"
             className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
-              errors.memoryMB ? 'border-red-500' : 'border-neutral-300'
+              errors.memoryMB ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
             }`}
           />
           <AnimatePresence>
@@ -135,7 +135,7 @@ export default function LambdaConfigForm({ config, onChange, label }: LambdaConf
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="mt-1 text-sm text-red-600"
+                className="mt-1 text-sm text-red-600 dark:text-red-400"
               >
                 {errors.memoryMB}
               </motion.p>
@@ -147,7 +147,7 @@ export default function LambdaConfigForm({ config, onChange, label }: LambdaConf
           variants={errors.monthlyInvocations ? errorVariants : undefined}
           animate={errors.monthlyInvocations ? "animate" : undefined}
         >
-          <label className="block text-sm font-medium text-neutral-700 mb-2">
+          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
             Monthly Invocations
           </label>
           <motion.input
@@ -160,7 +160,7 @@ export default function LambdaConfigForm({ config, onChange, label }: LambdaConf
             whileHover="hover"
             whileTap="tap"
             className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
-              errors.monthlyInvocations ? 'border-red-500' : 'border-neutral-300'
+              errors.monthlyInvocations ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
             }`}
           />
           <AnimatePresence>
@@ -169,7 +169,7 @@ export default function LambdaConfigForm({ config, onChange, label }: LambdaConf
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="mt-1 text-sm text-red-600"
+                className="mt-1 text-sm text-red-600 dark:text-red-400"
               >
                 {errors.monthlyInvocations}
               </motion.p>
@@ -181,7 +181,7 @@ export default function LambdaConfigForm({ config, onChange, label }: LambdaConf
           variants={errors.avgDurationMs ? errorVariants : undefined}
           animate={errors.avgDurationMs ? "animate" : undefined}
         >
-          <label className="block text-sm font-medium text-neutral-700 mb-2">
+          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
             Average Duration (milliseconds)
           </label>
           <motion.input
@@ -194,14 +194,14 @@ export default function LambdaConfigForm({ config, onChange, label }: LambdaConf
             whileHover="hover"
             whileTap="tap"
             className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
-              errors.avgDurationMs ? 'border-red-500' : 'border-neutral-300'
+              errors.avgDurationMs ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
             }`}
           />
           <motion.p
             key={calculateGBSeconds()}
             variants={costChangeVariants}
             animate="animate"
-            className="mt-1 text-sm text-neutral-500"
+            className="mt-1 text-sm text-neutral-500 dark:text-neutral-400"
           >
             ≈ {calculateGBSeconds()} GB-seconds per month
           </motion.p>
@@ -211,7 +211,7 @@ export default function LambdaConfigForm({ config, onChange, label }: LambdaConf
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="mt-1 text-sm text-red-600"
+                className="mt-1 text-sm text-red-600 dark:text-red-400"
               >
                 {errors.avgDurationMs}
               </motion.p>

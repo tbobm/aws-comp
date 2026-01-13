@@ -55,13 +55,13 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
       variants={fadeInUpVariants}
       initial="initial"
       animate="animate"
-      className="bg-white rounded-lg shadow-md p-6"
+      className="bg-white dark:bg-neutral-800 rounded-lg shadow-md p-6"
     >
-      <h2 className="text-2xl font-bold mb-6 text-neutral-800">{label}</h2>
+      <h2 className="text-2xl font-bold mb-6 text-neutral-800 dark:text-neutral-100">{label}</h2>
 
       <div className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-neutral-700 mb-2">
+          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
             Storage Tier
           </label>
           <motion.select
@@ -70,7 +70,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
             variants={interactiveControlVariants}
             whileHover="hover"
             whileTap="tap"
-            className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover"
+            className="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover"
           >
             {Object.entries(S3_TIER_METADATA).map(([key, metadata]) => (
               <option key={key} value={key}>
@@ -82,7 +82,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
             key={config.tier}
             variants={costChangeVariants}
             animate="animate"
-            className="mt-1 text-sm text-neutral-500"
+            className="mt-1 text-sm text-neutral-500 dark:text-neutral-400"
           >
             {S3_TIER_METADATA[config.tier].description}
           </motion.p>
@@ -92,7 +92,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
           variants={errors.storageGB ? errorVariants : undefined}
           animate={errors.storageGB ? "animate" : undefined}
         >
-          <label className="block text-sm font-medium text-neutral-700 mb-2">
+          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
             Storage Size (GB)
           </label>
           <motion.input
@@ -105,7 +105,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
             whileHover="hover"
             whileTap="tap"
             className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
-              errors.storageGB ? 'border-red-500' : 'border-neutral-300'
+              errors.storageGB ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
             }`}
           />
           <AnimatePresence>
@@ -114,7 +114,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="mt-1 text-sm text-red-600"
+                className="mt-1 text-sm text-red-600 dark:text-red-400"
               >
                 {errors.storageGB}
               </motion.p>
@@ -126,7 +126,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
           variants={errors.putRequests ? errorVariants : undefined}
           animate={errors.putRequests ? "animate" : undefined}
         >
-          <label className="block text-sm font-medium text-neutral-700 mb-2">
+          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
             PUT Requests (per month)
           </label>
           <motion.input
@@ -139,7 +139,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
             whileHover="hover"
             whileTap="tap"
             className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
-              errors.putRequests ? 'border-red-500' : 'border-neutral-300'
+              errors.putRequests ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
             }`}
           />
           <AnimatePresence>
@@ -148,7 +148,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="mt-1 text-sm text-red-600"
+                className="mt-1 text-sm text-red-600 dark:text-red-400"
               >
                 {errors.putRequests}
               </motion.p>
@@ -160,7 +160,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
           variants={errors.getRequests ? errorVariants : undefined}
           animate={errors.getRequests ? "animate" : undefined}
         >
-          <label className="block text-sm font-medium text-neutral-700 mb-2">
+          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
             GET Requests (per month)
           </label>
           <motion.input
@@ -173,7 +173,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
             whileHover="hover"
             whileTap="tap"
             className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
-              errors.getRequests ? 'border-red-500' : 'border-neutral-300'
+              errors.getRequests ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
             }`}
           />
           <AnimatePresence>
@@ -182,7 +182,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="mt-1 text-sm text-red-600"
+                className="mt-1 text-sm text-red-600 dark:text-red-400"
               >
                 {errors.getRequests}
               </motion.p>
@@ -194,7 +194,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
           variants={errors.dataTransferGB ? errorVariants : undefined}
           animate={errors.dataTransferGB ? "animate" : undefined}
         >
-          <label className="block text-sm font-medium text-neutral-700 mb-2">
+          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
             Data Transfer Out (GB per month)
           </label>
           <motion.input
@@ -207,7 +207,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
             whileHover="hover"
             whileTap="tap"
             className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
-              errors.dataTransferGB ? 'border-red-500' : 'border-neutral-300'
+              errors.dataTransferGB ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
             }`}
           />
           <AnimatePresence>
@@ -216,7 +216,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="mt-1 text-sm text-red-600"
+                className="mt-1 text-sm text-red-600 dark:text-red-400"
               >
                 {errors.dataTransferGB}
               </motion.p>

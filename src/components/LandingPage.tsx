@@ -41,19 +41,19 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-primary-50 to-neutral-50 py-16">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-primary-50 to-neutral-50 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-900 py-16">
       <ThemeToggle />
       <div className="container mx-auto px-4">
         <motion.div
-          className="text-center mb-16 max-w-3xl mx-auto pb-8 border-b-2 border-primary-500/20"
+          className="text-center mb-16 max-w-3xl mx-auto pb-8 border-b-2 border-primary-500/20 dark:border-primary-400/20"
           variants={fadeInUpVariants}
           initial="initial"
           animate="animate"
         >
-          <h1 className="text-5xl font-bold text-neutral-900 mb-4 tracking-tight">
+          <h1 className="text-5xl font-bold text-neutral-900 dark:text-neutral-100 mb-4 tracking-tight">
             AWS Cost Calculator
           </h1>
-          <p className="text-xl text-neutral-600">
+          <p className="text-xl text-neutral-600 dark:text-neutral-400">
             Compare costs between different AWS service configurations with real-time pricing data
           </p>
         </motion.div>
@@ -76,19 +76,19 @@ export default function LandingPage() {
             >
               <Link
                 to={service.path}
-                className="group block bg-white rounded-xl shadow-subtle p-8 h-full transition-normal"
+                className="group block bg-white dark:bg-neutral-800 rounded-xl shadow-subtle hover:shadow-hover p-8 h-full transition-normal border border-neutral-200 dark:border-neutral-700"
               >
                 <div className="text-6xl mb-6">
                   {service.icon}
                 </div>
-                <h2 className="text-2xl font-bold text-neutral-900 mb-3 group-hover:text-primary-600 transition-normal">
+                <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-normal">
                   {service.title}
                 </h2>
-                <p className="text-neutral-600 leading-relaxed mb-4">
+                <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-4">
                   {service.description}
                 </p>
                 <motion.div
-                  className="flex items-center text-primary-600 font-semibold"
+                  className="flex items-center text-primary-600 dark:text-primary-400 font-semibold"
                   variants={interactiveControlVariants}
                   whileHover="hover"
                 >
@@ -110,7 +110,7 @@ export default function LandingPage() {
         </motion.div>
 
         <div className="mt-16 text-center">
-          <p className="text-neutral-500 text-sm">
+          <p className="text-neutral-500 dark:text-neutral-400 text-sm">
             Pricing data sourced from AWS Price List API
           </p>
         </div>

@@ -101,13 +101,13 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
       variants={fadeInUpVariants}
       initial="initial"
       animate="animate"
-      className="bg-white rounded-lg shadow-md p-6"
+      className="bg-white dark:bg-neutral-800 rounded-lg shadow-md p-6"
     >
-      <h2 className="text-2xl font-bold mb-6 text-neutral-800">{label}</h2>
+      <h2 className="text-2xl font-bold mb-6 text-neutral-800 dark:text-neutral-100">{label}</h2>
 
       <div className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-neutral-700 mb-2">
+          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
             Deployment Type
           </label>
           <div className="flex gap-4">
@@ -119,7 +119,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
               className={`flex-1 px-4 py-2 rounded-md font-medium transition-quick shadow-subtle hover:shadow-hover ${
                 config.type === 'SERVERLESS_V2'
                   ? 'bg-primary-600 text-white'
-                  : 'bg-neutral-200 text-neutral-700 hover:bg-neutral-300'
+                  : 'bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-300 dark:hover:bg-neutral-600'
               }`}
             >
               Serverless v2
@@ -132,7 +132,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
               className={`flex-1 px-4 py-2 rounded-md font-medium transition-quick shadow-subtle hover:shadow-hover ${
                 config.type === 'PROVISIONED'
                   ? 'bg-primary-600 text-white'
-                  : 'bg-neutral-200 text-neutral-700 hover:bg-neutral-300'
+                  : 'bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-300 dark:hover:bg-neutral-600'
               }`}
             >
               Provisioned
@@ -154,7 +154,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                 variants={errors.minACU ? errorVariants : undefined}
                 animate={errors.minACU ? "animate" : undefined}
               >
-                <label className="block text-sm font-medium text-neutral-700 mb-2">
+                <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
                   Min ACU (Aurora Capacity Units)
                 </label>
                 <motion.input
@@ -167,7 +167,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                   whileHover="hover"
                   whileTap="tap"
                   className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
-                    errors.minACU ? 'border-red-500' : 'border-neutral-300'
+                    errors.minACU ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
                   }`}
                 />
                 <AnimatePresence>
@@ -176,7 +176,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
-                      className="mt-1 text-sm text-red-600"
+                      className="mt-1 text-sm text-red-600 dark:text-red-400"
                     >
                       {errors.minACU}
                     </motion.p>
@@ -188,7 +188,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                 variants={errors.maxACU ? errorVariants : undefined}
                 animate={errors.maxACU ? "animate" : undefined}
               >
-                <label className="block text-sm font-medium text-neutral-700 mb-2">
+                <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
                   Max ACU (Aurora Capacity Units)
                 </label>
                 <motion.input
@@ -201,7 +201,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                   whileHover="hover"
                   whileTap="tap"
                   className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
-                    errors.maxACU ? 'border-red-500' : 'border-neutral-300'
+                    errors.maxACU ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
                   }`}
                 />
                 <AnimatePresence>
@@ -210,7 +210,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
-                      className="mt-1 text-sm text-red-600"
+                      className="mt-1 text-sm text-red-600 dark:text-red-400"
                     >
                       {errors.maxACU}
                     </motion.p>
@@ -222,7 +222,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                 variants={errors.storageGB ? errorVariants : undefined}
                 animate={errors.storageGB ? "animate" : undefined}
               >
-                <label className="block text-sm font-medium text-neutral-700 mb-2">
+                <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
                   Storage (GB)
                 </label>
                 <motion.input
@@ -235,7 +235,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                   whileHover="hover"
                   whileTap="tap"
                   className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
-                    errors.storageGB ? 'border-red-500' : 'border-neutral-300'
+                    errors.storageGB ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
                   }`}
                 />
                 <AnimatePresence>
@@ -244,7 +244,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
-                      className="mt-1 text-sm text-red-600"
+                      className="mt-1 text-sm text-red-600 dark:text-red-400"
                     >
                       {errors.storageGB}
                     </motion.p>
@@ -253,7 +253,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
               </motion.div>
 
               <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-2">
+                <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
                   I/O Requests (per month)
                 </label>
                 <motion.input
@@ -265,12 +265,12 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                   variants={interactiveControlVariants}
                   whileHover="hover"
                   whileTap="tap"
-                  className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover"
+                  className="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-2">
+                <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
                   Backup Storage (GB)
                 </label>
                 <motion.input
@@ -282,7 +282,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                   variants={interactiveControlVariants}
                   whileHover="hover"
                   whileTap="tap"
-                  className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover"
+                  className="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover"
                 />
               </div>
             </motion.div>
@@ -296,7 +296,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
               className="space-y-4"
             >
               <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-2">
+                <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
                   Instance Type
                 </label>
                 <motion.select
@@ -307,7 +307,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                   variants={interactiveControlVariants}
                   whileHover="hover"
                   whileTap="tap"
-                  className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover"
+                  className="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover"
                 >
                   {Object.entries(AURORA_INSTANCE_METADATA).map(([key, metadata]) => (
                     <option key={key} value={key}>
@@ -319,7 +319,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                   key={config.config.instanceType}
                   variants={costChangeVariants}
                   animate="animate"
-                  className="mt-1 text-sm text-neutral-500"
+                  className="mt-1 text-sm text-neutral-500 dark:text-neutral-400"
                 >
                   {AURORA_INSTANCE_METADATA[config.config.instanceType]?.vcpu} vCPU, {AURORA_INSTANCE_METADATA[config.config.instanceType]?.memoryGB}GB RAM
                 </motion.p>
@@ -329,7 +329,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                 variants={errors.instanceCount ? errorVariants : undefined}
                 animate={errors.instanceCount ? "animate" : undefined}
               >
-                <label className="block text-sm font-medium text-neutral-700 mb-2">
+                <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
                   Instance Count
                 </label>
                 <motion.input
@@ -342,7 +342,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                   whileHover="hover"
                   whileTap="tap"
                   className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
-                    errors.instanceCount ? 'border-red-500' : 'border-neutral-300'
+                    errors.instanceCount ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
                   }`}
                 />
                 <AnimatePresence>
@@ -351,7 +351,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
-                      className="mt-1 text-sm text-red-600"
+                      className="mt-1 text-sm text-red-600 dark:text-red-400"
                     >
                       {errors.instanceCount}
                     </motion.p>
@@ -363,7 +363,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                 variants={errors.storageGB ? errorVariants : undefined}
                 animate={errors.storageGB ? "animate" : undefined}
               >
-                <label className="block text-sm font-medium text-neutral-700 mb-2">
+                <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
                   Storage (GB)
                 </label>
                 <motion.input
@@ -376,7 +376,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                   whileHover="hover"
                   whileTap="tap"
                   className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover ${
-                    errors.storageGB ? 'border-red-500' : 'border-neutral-300'
+                    errors.storageGB ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
                   }`}
                 />
                 <AnimatePresence>
@@ -385,7 +385,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
-                      className="mt-1 text-sm text-red-600"
+                      className="mt-1 text-sm text-red-600 dark:text-red-400"
                     >
                       {errors.storageGB}
                     </motion.p>
@@ -394,7 +394,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
               </motion.div>
 
               <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-2">
+                <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
                   I/O Requests (per month)
                 </label>
                 <motion.input
@@ -406,12 +406,12 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                   variants={interactiveControlVariants}
                   whileHover="hover"
                   whileTap="tap"
-                  className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover"
+                  className="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-2">
+                <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 dark:text-neutral-300 mb-2">
                   Backup Storage (GB)
                 </label>
                 <motion.input
@@ -423,7 +423,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
                   variants={interactiveControlVariants}
                   whileHover="hover"
                   whileTap="tap"
-                  className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover"
+                  className="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 transition-quick shadow-subtle focus:shadow-hover"
                 />
               </div>
             </motion.div>
