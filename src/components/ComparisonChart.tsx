@@ -1,7 +1,10 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { motion } from 'framer-motion';
+import { useCurrentPng } from 'recharts-to-png';
+import FileSaver from 'file-saver';
+import { useState } from 'react';
 import { GenericCostBreakdown } from '../types/comparison';
-import { fadeInUpVariants } from '../utils/animations';
+import { fadeInUpVariants, cardVariants } from '../utils/animations';
 import { useTheme } from '../contexts/ThemeContext';
 
 interface ComparisonChartProps {
@@ -19,6 +22,8 @@ export default function ComparisonChart({
 }: ComparisonChartProps) {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
+  const [isDownloading, setIsDownloading] = useState(false);
+  const [getPng, { ref }] = useCurrentPng();
 
   // Abbreviate long labels to prevent overlap
   const abbreviateLabel = (label: string): string => {
@@ -54,6 +59,20 @@ export default function ComparisonChart({
     [config2Label]: breakdown2.total,
   });
 
+  const handleDownload = async () => {
+    setIsDownloading(true);
+    try {
+      const png = await getPng();
+      if (png) {
+        FileSaver.saveAs(png, 'aws-comparison.png');
+      }
+    } catch (error) {
+      console.error('Error downloading chart:', error);
+    } finally {
+      setIsDownloading(false);
+    }
+  };
+
   return (
     <motion.div
       variants={fadeInUpVariants}
@@ -61,7 +80,7 @@ export default function ComparisonChart({
       animate="animate"
       className="pb-[30px]"
     >
-      <ResponsiveContainer width="100%" height={400}>
+      <ResponsiveContainer width="100%" height={400} ref={ref}>
         <BarChart
           data={chartData}
           margin={{ top: 20, right: 30, left: 20, bottom: 30 }}
@@ -116,6 +135,20 @@ export default function ComparisonChart({
           />
         </BarChart>
       </ResponsiveContainer>
+
+      <div className="flex justify-end mt-4">
+        <motion.button
+          variants={cardVariants}
+          whileHover="hover"
+          whileTap="tap"
+          onClick={handleDownload}
+          disabled={isDownloading}
+          className="px-4 py-2 bg-primary-600 dark:bg-primary-500 text-white rounded-lg shadow-soft hover:shadow-hover transition-shadow duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+        >
+          <span>{isDownloading ? 'Downloading...' : 'Download Chart'}</span>
+          <span className="text-lg">↓</span>
+        </motion.button>
+      </div>
     </motion.div>
   );
 }
