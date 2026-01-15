@@ -38,7 +38,7 @@ See [v0.1 milestone archive](milestones/v0.1-ROADMAP.md) for full phase details.
 - [x] **Phase 5: Lambda Service Integration** - Add Lambda with invocation-based pricing and memory/duration configurations
 - [x] **Phase 6: ECS Service Integration** - Add ECS with Fargate, EC2, and managed infrastructure pricing comparisons
 - [x] **Phase 7: Dark Mode Theme** - Implement dark mode with theme toggle and persistent preference
-- [ ] **Phase 8: Multi-Scenario Comparison & Export** - Enable creating multiple volume scenarios and exporting comparison graphs
+- [x] **Phase 8: Multi-Scenario Comparison & Export** - Enable creating multiple volume scenarios and exporting comparison graphs
 - [ ] **Phase 9: Cross-Service Cost Analysis** - Unified cost comparison across all services with recommendations
 
 ## Phase Details
@@ -78,11 +78,12 @@ Plans:
 **Goal**: Enable creating multiple volume scenarios (A, B, C) and exporting comparison graphs as downloadable images
 **Depends on**: Phase 7
 **Research**: Complete (recharts-to-png for chart export, Context API for multi-scenario state)
-**Plans**: 2 plans (1/2 complete)
+**Plans**: 2 plans (2/2 complete)
+**Status**: ✅ COMPLETE (2026-01-15)
 
 Plans:
 - [x] 08-01: Chart Export Functionality - COMPLETE (2026-01-13)
-- [ ] 08-02: Multi-Scenario Comparison Mode
+- [x] 08-02: Multi-Scenario Comparison Mode - COMPLETE (2026-01-15)
 
 ### Phase 9: Cross-Service Cost Analysis
 **Goal**: Enable comparing costs across all services (RDS, S3, Aurora, Lambda, ECS) with unified recommendations
