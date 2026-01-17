@@ -11,7 +11,7 @@ None
 ## Milestones
 
 - ✅ **[v0.1 Design Foundation & Component Redesign](milestones/v0.1-ROADMAP.md)** — Phases 1-2 (shipped 2026-01-09)
-- 🚧 **v1.0 New Direction** — Phases 5-9 (in progress)
+- ✅ **[v1.0 New Direction](milestones/v1.0-ROADMAP.md)** — Phases 5-8 (shipped 2026-01-17, Phase 9 cancelled)
 
 ## Phases
 
@@ -31,73 +31,28 @@ See [v0.1 milestone archive](milestones/v0.1-ROADMAP.md) for full phase details.
 
 </details>
 
-### 🚧 v1.0 New Direction (In Progress)
+<details>
+<summary>✅ v1.0 New Direction (Phases 5-8) — SHIPPED 2026-01-17</summary>
 
-**Milestone Goal:** Expand AWS comparison tool with compute services (Lambda, ECS), dark mode support, multi-scenario comparison with export capabilities, and unified cross-service cost analysis.
+- [x] Phase 5: Lambda Service Integration (1/1 plans) — completed 2026-01-11
+- [x] Phase 6: ECS Service Integration (1/1 plans) — completed 2026-01-13
+- [x] Phase 7: Dark Mode Theme (1/1 plans) — completed 2026-01-13
+- [x] Phase 8: Multi-Scenario Comparison & Export (2/2 plans) — completed 2026-01-15
+- [x] Phase 9: Cross-Service Cost Analysis (0/1 plans) — CANCELLED 2026-01-17
 
-- [x] **Phase 5: Lambda Service Integration** - Add Lambda with invocation-based pricing and memory/duration configurations
-- [x] **Phase 6: ECS Service Integration** - Add ECS with Fargate, EC2, and managed infrastructure pricing comparisons
-- [x] **Phase 7: Dark Mode Theme** - Implement dark mode with theme toggle and persistent preference
-- [x] **Phase 8: Multi-Scenario Comparison & Export** - Enable creating multiple volume scenarios and exporting comparison graphs
-- [ ] **Phase 9: Cross-Service Cost Analysis** - Unified cost comparison across all services with recommendations
+See [v1.0 milestone archive](milestones/v1.0-ROADMAP.md) for full phase details.
+
+</details>
 
 ## Phase Details
 
 _Phases 1-2 details archived in [v0.1 milestone](milestones/v0.1-ROADMAP.md)_
-
-### Phase 5: Lambda Service Integration
-**Goal**: Add Lambda service with invocation-based pricing, memory/duration configurations, and cost calculations
-**Depends on**: v0.1 milestone complete
-**Research**: Likely (AWS Lambda pricing API, configuration options)
-**Research topics**: Lambda pricing model (requests + duration), memory scaling costs, cold start considerations
-**Plans**: TBD
-
-Plans:
-- [x] 05-01: Lambda Core Implementation - COMPLETE (2026-01-11)
-
-### Phase 6: ECS Service Integration
-**Goal**: Add ECS service supporting Fargate, EC2, and managed infrastructure pricing comparisons
-**Depends on**: Phase 5
-**Research**: Likely (ECS pricing models, Fargate vs EC2 cost calculations)
-**Research topics**: ECS pricing tiers, Fargate vs EC2 cost structures, capacity provider strategies
-**Plans**: 1 plan
-
-Plans:
-- [x] 06-01: ECS Core Implementation - COMPLETE (2026-01-13)
-
-### Phase 7: Dark Mode Theme
-**Goal**: Implement dark mode with theme toggle, dark-optimized colors, and persistent preference
-**Depends on**: Phase 6
-**Research**: Unlikely (applying existing Material Design theme patterns)
-**Plans**: 1 plan
-
-Plans:
-- [x] 07-01: Dark Mode Implementation - COMPLETE (2026-01-13)
-
-### Phase 8: Multi-Scenario Comparison & Export
-**Goal**: Enable creating multiple volume scenarios (A, B, C) and exporting comparison graphs as downloadable images
-**Depends on**: Phase 7
-**Research**: Complete (recharts-to-png for chart export, Context API for multi-scenario state)
-**Plans**: 2 plans (2/2 complete)
-**Status**: ✅ COMPLETE (2026-01-15)
-
-Plans:
-- [x] 08-01: Chart Export Functionality - COMPLETE (2026-01-13)
-- [x] 08-02: Multi-Scenario Comparison Mode - COMPLETE (2026-01-15)
-
-### Phase 9: Cross-Service Cost Analysis
-**Goal**: Enable comparing costs across all services (RDS, S3, Aurora, Lambda, ECS) with unified recommendations
-**Depends on**: Phase 8
-**Research**: Unlikely (leveraging existing design system and cost calculation patterns)
-**Plans**: TBD
-
-Plans:
-- [ ] 09-01: TBD (run /gsd:plan-phase 9 to break down)
+_Phases 5-8 details archived in [v1.0 milestone](milestones/v1.0-ROADMAP.md)_
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 5 → 6 → 7 → 8 → 9
+Phases execute in numeric order: 1 → 2 → 5 → 6 → 7 → 8 → ~~9~~
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
@@ -106,5 +61,5 @@ Phases execute in numeric order: 1 → 2 → 5 → 6 → 7 → 8 → 9
 | 5. Lambda Service Integration | v1.0 | 1/1 | Complete | 2026-01-11 |
 | 6. ECS Service Integration | v1.0 | 1/1 | Complete | 2026-01-13 |
 | 7. Dark Mode Theme | v1.0 | 1/1 | Complete | 2026-01-13 |
-| 8. Multi-Scenario Comparison & Export | v1.0 | 1/2 | In progress | - |
-| 9. Cross-Service Cost Analysis | v1.0 | 0/? | Not started | - |
+| 8. Multi-Scenario Comparison & Export | v1.0 | 2/2 | Complete | 2026-01-15 |
+| 9. Cross-Service Cost Analysis | v1.0 | 0/1 | Cancelled | 2026-01-17 |
