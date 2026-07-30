@@ -36,7 +36,6 @@ async function fetchS3Pricing(): Promise<SimplifiedPricing[]> {
     for (const priceItem of response.PriceList || []) {
       const data = JSON.parse(priceItem) as S3PricingData;
       const product = data.product;
-      const sku = product.sku;
 
       const onDemandTerms = data.terms?.OnDemand;
       if (!onDemandTerms) continue;

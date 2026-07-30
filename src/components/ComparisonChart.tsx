@@ -58,7 +58,7 @@ export default function ComparisonChart({
   );
 
   const chartData = Array.from(allCategories).map(category => {
-    const dataPoint: Record<string, any> = {
+    const dataPoint: Record<string, string | number> = {
       category: abbreviateLabel(category),
       fullCategory: category,
     };
@@ -69,7 +69,7 @@ export default function ComparisonChart({
     return dataPoint;
   });
 
-  const totalDataPoint: Record<string, any> = {
+  const totalDataPoint: Record<string, string | number> = {
     category: 'Total',
     fullCategory: 'Total',
   };

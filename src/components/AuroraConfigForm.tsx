@@ -24,10 +24,6 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    validateForm();
-  }, [config]);
-
-  const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
     if (config.type === 'SERVERLESS_V2') {
@@ -50,7 +46,7 @@ export default function AuroraConfigForm({ config, onChange, label }: AuroraConf
     }
 
     setErrors(newErrors);
-  };
+  }, [config]);
 
   const handleTypeChange = (type: AuroraDeploymentType) => {
     if (type === 'SERVERLESS_V2') {
