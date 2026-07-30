@@ -19,10 +19,6 @@ export default function LambdaConfigForm({ config, onChange, label }: LambdaConf
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    validateForm();
-  }, [config]);
-
-  const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
     if (config.memoryMB < 128 || config.memoryMB > 10240) {
@@ -36,7 +32,7 @@ export default function LambdaConfigForm({ config, onChange, label }: LambdaConf
     }
 
     setErrors(newErrors);
-  };
+  }, [config]);
 
   const handleNumberChange = (field: keyof LambdaConfig, value: string) => {
     const numValue = parseFloat(value) || 0;

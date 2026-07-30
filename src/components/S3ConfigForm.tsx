@@ -19,10 +19,6 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    validateForm();
-  }, [config]);
-
-  const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
     if (config.storageGB < 0) {
@@ -39,7 +35,7 @@ export default function S3ConfigForm({ config, onChange, label }: S3ConfigFormPr
     }
 
     setErrors(newErrors);
-  };
+  }, [config]);
 
   const handleNumberChange = (field: keyof S3StorageConfig, value: string) => {
     const numValue = parseFloat(value) || 0;

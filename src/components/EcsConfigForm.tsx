@@ -20,10 +20,6 @@ export default function EcsConfigForm({ config, onChange, label }: EcsConfigForm
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    validateForm();
-  }, [config]);
-
-  const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
     const memoryRange = ECS_MEMORY_RANGES[config.vCPU];
@@ -38,7 +34,7 @@ export default function EcsConfigForm({ config, onChange, label }: EcsConfigForm
     }
 
     setErrors(newErrors);
-  };
+  }, [config]);
 
   const handleNumberChange = (field: keyof EcsConfig, value: string) => {
     const numValue = parseFloat(value) || 0;
